@@ -5,22 +5,24 @@ document.getElementById("x-btn").onclick = close_pop_up;
 document.getElementById("create_btn").onclick = add_to_do_card; 
 document.getElementById("description").onkeydown = check_description_length; 
 
+var checkbox = document.querySelector("input[name = sort]"); 
 
+checkbox.addEventListener('change', sort_array); 
+
+let finished_tasks_array = []; 
+let finished_task_array_unsorted = []; 
+let current_task_array_index = 0; 
 
 
 function show_pop_up(){
-    var pop_up_box = document.getElementById("blur-box");
 
+    let pop_up_box = document.getElementById("blur-box");
     pop_up_box.style.display = "block"; 
-    //pop_up_box.style.backdrop-filter = "blur(10px)"; 
-
-
-    
 
 }
 
 function close_pop_up(){
-    var pop_up_box = document.getElementById("blur-box"); 
+    let pop_up_box = document.getElementById("blur-box"); 
 
     pop_up_box.style.display = "none";
 
@@ -28,32 +30,32 @@ function close_pop_up(){
 
 function add_to_do_card(){
     
-    var title = document.getElementById("title").value;
-    var descripion = document.getElementById("description").value;  
-    var author = document.getElementById("author").value; 
+    let title = document.getElementById("title").value;
+    let descripion = document.getElementById("description").value;  
+    let author = document.getElementById("author").value; 
 
     if(title === "" || descripion === "" || author === ""){
         alert("No fields can be empty"); 
     }
 
     else{
-        var outer_box = document.getElementById('flex-box'); 
-        var container = document.createElement('div'); 
+        let outer_box = document.getElementById('flex-box'); 
+        let container = document.createElement('div'); 
 
         // header creation
-        var header = document.createElement('h3'); 
+        let header = document.createElement('h3'); 
         header.innerHTML = "To Do";
 
         // p-tag creation
-        var titleNode = document.createElement('p'); 
+        let titleNode = document.createElement('p'); 
         titleNode.classList.add('title');
         //titleNode.setAttribute("id", "title");
-        var descriptionNode = document.createElement('p'); 
-        var authorNode = document.createElement('p'); 
+        let descriptionNode = document.createElement('p'); 
+        let authorNode = document.createElement('p'); 
 
         // button creation
-        var finish_task_button = document.createElement('button'); 
-        var delete_task_button = document.createElement('button'); 
+        let finish_task_button = document.createElement('button'); 
+        let delete_task_button = document.createElement('button'); 
 
 
         finish_task_button.classList.add("finish_btn");
@@ -113,24 +115,40 @@ function add_to_table(title, description, author, time_of_completion){
 function finish_task(){
 
     //alert(this.querySelectorAll(".finish_btn").parentNode.parentNode.firstChild.innerHTML);
-    alert(this.parentNode.querySelector(".finish_btn").parentNode.innerHTML); 
+    //alert(this.parentNode.querySelector(".finish_btn").parentNode.innerHTML); 
     
-    var informasjon = this.parentNode.querySelector(".finish_btn").parentNode.childNodes;
+    let informasjon = this.parentNode.querySelector(".finish_btn").parentNode.childNodes;
 
       //this.querySelector(".finish_btn").parentNode.remove(); 
 
     
    // console.log(informasjon.length)
    // console.log(informasjon[2]); 
-   var title = informasjon[1].textContent; 
-   var description = informasjon[2].textContent; 
-   var author = informasjon[3].textContent; 
-   var date = new Date(); 
-   var completion_date = date.getDay() + "." + date.getMonth() + "." + date.getFullYear();
+   let title = informasjon[1].textContent; 
+   let description = informasjon[2].textContent; 
+   let author = informasjon[3].textContent; 
+   let date = new Date(); 
+   let completion_date = date.getDay() + "." + date.getMonth() + "." + date.getFullYear();
    //console.log(title + " " + description + " " + author); 
   
    add_to_table(title, description, author, completion_date); 
-   
+
+    finished_tasks_array[current_task_array_index]=[title, description, author, date];  
+    finished_task_array_unsorted[current_task_array_index] = [title, description, author, date]; 
+    
+    //alert(date.getTime()); 
+
+    current_task_array_index++; 
+
+    //console.log(finished_tasks_array)
+
+   /* for(let i = 0; i < finished_tasks_array.length; i++){
+        for(let j = 0; j < finished_tasks_array[i].length; j++){
+            
+            console.log(finished_tasks_array[i][j])
+        }
+    }
+    */
    this.parentNode.remove(); 
     
 }
@@ -144,7 +162,7 @@ function delete_task(){
 
 function check_description_length(e){
 
-    if(e.key != "ArrowLef" || e.key != "ArrowUp" || e.key != "ArrowRigth" || e.key != "ArrowDown" || e.key != "Backspace"){
+    if(e.key != "ArrowLeft" || e.key != "ArrowUp" || e.key != "ArrowRigth" || e.key != "ArrowDown" || e.key != "Backspace"){
         let new_description = document.getElementById('description'); 
         let characters = new_description.value; 
 
@@ -168,6 +186,80 @@ function check_description_length(e){
     }    
 
    
+}
+
+
+function sort_array(){
+   
+   
+    /*
+        console.log("\n\n");
+        console.log("before sort"); 
+        for(let i  = 0; i<finished_tasks_array.length; i++){
+            for(let j = 0; j< finished_tasks_array[i].length; j++){
+                console.log(finished_tasks_array[i][j]); 
+            }
+        }
+    */
+   if(this.checked){
+
+    // insertion sort based on the time of which task was completed.
+        for(let i = 1; i < finished_tasks_array.length; i++){
+            let j = i -1; 
+            let temp = finished_tasks_array[i];
+            let comparator = temp[3].getTime();  
+
+            while( j >= 0 && finished_tasks_array[j][3].getTime() < comparator){
+                finished_tasks_array[j + 1] = finished_tasks_array[j]; 
+                j--; 
+            }
+            finished_tasks_array[j+1] = temp; 
+        }
+
+        finish_sorting(finished_tasks_array); 
+    }   
+    else{
+        // sends in a the unsorted array to reset positions when unchecked.
+        finish_sorting(finished_task_array_unsorted);
+    } 
+
+    
+}
+
+function finish_sorting(array){
+
+    let mainParent = document.getElementById('completion_table'); 
+
+    // removing current table entries
+    for(let i = 0; i< array.length; i++){
+        mainParent.rows[1].remove(); 
+    }
+
+    for(let i = 0; i< array.length; i++){
+
+        let new_tr = document.createElement('tr');
+        let td_title = document.createElement('td');
+        let td_author = document.createElement('td');
+        let td_description = document.createElement('td'); 
+        let td_date = document.createElement('td'); 
+        
+        td_title.innerHTML = array[i][0];
+        td_author.innerHTML = array[i][1]; 
+        td_description.innerHTML = array[i][2]; 
+        
+        let date = array[i][3]; 
+        td_date.innerHTML = date.getDay() +"." +date.getMonth() + "." + date.getFullYear(); 
+
+        mainParent.appendChild(new_tr); 
+        new_tr.appendChild(td_title); 
+        new_tr.appendChild(td_description); 
+        new_tr.appendChild(td_author); 
+        new_tr.appendChild(td_date); 
+        mainParent.appendChild(new_tr); 
+        
+
+    }
+
 }
 
 
