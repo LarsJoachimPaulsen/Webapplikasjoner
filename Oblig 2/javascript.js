@@ -1,8 +1,9 @@
-'use strict'
+"use strict"
 
 document.getElementById("to_do_btn").onclick = show_pop_up;  
 document.getElementById("x-btn").onclick = close_pop_up;
 document.getElementById("create_btn").onclick = add_to_do_card; 
+document.getElementById("description").onkeydown = check_description_length; 
 
 
 
@@ -139,6 +140,34 @@ function delete_task(){
     this.parentNode.remove(); 
 
 
+}
+
+function check_description_length(e){
+
+    if(e.key != "ArrowLef" || e.key != "ArrowUp" || e.key != "ArrowRigth" || e.key != "ArrowDown" || e.key != "Backspace"){
+        let new_description = document.getElementById('description'); 
+        let characters = new_description.value; 
+
+        
+
+        let number_of_characters = characters.length; 
+
+        let number_of_characters_left = 30 - number_of_characters;
+
+    
+        if(number_of_characters_left < 1){
+            new_description.innerHTML = new_description; 
+            alert("description is to long"); 
+            
+        }
+        else{
+            new_description += e.key; 
+            document.getElementById("counter").innerHTML = "( " + number_of_characters_left +" characters left)";  
+        }
+        
+    }    
+
+   
 }
 
 
