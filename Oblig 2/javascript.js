@@ -5,6 +5,7 @@ document.getElementById("x-btn").onclick = close_pop_up;
 document.getElementById("create_btn").onclick = add_to_do_card; 
 document.getElementById("description").onkeydown = check_description_length; 
 
+
 var checkbox = document.querySelector("input[name = sort]"); 
 
 checkbox.addEventListener('change', sort_array); 
@@ -230,10 +231,9 @@ function finish_sorting(array){
 
     let mainParent = document.getElementById('completion_table'); 
 
-    // removing current table entries
-    for(let i = 0; i< array.length; i++){
-        mainParent.rows[1].remove(); 
-    }
+  while(mainParent.rows[1]){
+      mainParent.rows[1].remove(); 
+  }
 
     for(let i = 0; i< array.length; i++){
 
