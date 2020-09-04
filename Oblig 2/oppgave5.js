@@ -2,14 +2,12 @@
 "use strict"
 
 //const index = document.implementation.createHTMLDocument('index.html'); 
-const script_tag = document.createElement("script"); 
 const head_tag = document.createElement('head'); 
 const main_tag = document.createElement("main");
 const ul_tag = document.createElement("ul")
 
 //window.onload = start(); 
 
-document.head.append(script_tag); 
      
 document.body.append(main_tag); 
 
@@ -49,8 +47,8 @@ document.getElementById("test_btn").onclick = test_func;
 main_tag.appendChild(ul_tag); 
 create_list_elements(); 
 
-alert(document.body.innerHTML); 
-alert(document.innerHTML); 
+//alert(document.body.innerHTML); 
+//alert(document.innerHTML); 
 
 //var new_window = window.open("index.html", "newWindow", "width=500 height=700"); 
 
@@ -96,7 +94,13 @@ function reset_fun(){
     //alert(this.ul_tag.innerHTML); 
    // alert(document.querySelector("ul").innerHTML); 
 
-    document.querySelectorAll(".delete_btn").parentNode.remove(); 
+   let mainList = document.querySelector("ul"); 
+
+   while(mainList.childElementCount != 0){
+       mainList.firstChild.remove();
+   }
+   
+
     create_list_elements(); 
 
 }
