@@ -43,7 +43,7 @@ main_tag.appendChild(reset_btn);
 document.getElementById("reset_btn").onclick = reset_fun; 
 document.getElementById("test_btn").onclick = test_func; 
  
-    
+
 main_tag.appendChild(ul_tag); 
 create_list_elements(); 
 
@@ -94,11 +94,18 @@ function reset_fun(){
     //alert(this.ul_tag.innerHTML); 
    // alert(document.querySelector("ul").innerHTML); 
 
-   let mainList = document.querySelector("ul"); 
+   let mainList = document.querySelector("ul");
 
-   while(mainList.childElementCount != 0){
+   while(mainList.hasChildNodes()){
+       mainList.lastChild.remove(); 
+   }
+
+   
+   /*
+   while(mainList.childElementCount){
        mainList.firstChild.remove();
    }
+   */
    
 
     create_list_elements(); 
