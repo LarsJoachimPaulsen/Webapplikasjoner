@@ -24,10 +24,13 @@ main_tag.appendChild(trener_js);
 
 const select_box = document.createElement("select"); 
 
+const div = document.createElement("div"); 
+
 select_box.style.maxWidth = "500px"; 
-select_box.style.marginLeft = "auto";
-select_box.style.marginRight = "auto";  
-main_tag.appendChild(select_box); 
+select_box.style.marginLeft = "50%"; 
+
+main_tag.appendChild(div)
+div.appendChild(select_box); 
 
 const select_objects = [{id: "option_1", option:"object1"}, {id:"option_2", option:"object2"}, {id:"option_3", option:"opject 3"}]; 
 
