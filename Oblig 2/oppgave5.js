@@ -29,7 +29,11 @@ select_box.style.marginLeft = "50%";
 main_tag.appendChild(div)
 div.appendChild(select_box); 
 
-const select_objects = [{id: "option_1", option:"object1"}, {id:"option_2", option:"object2"}, {id:"option_3", option:"opject 3"}]; 
+const select_objects = [
+    {id: "option_1", option:"object1"}, 
+    {id:"option_2", option:"object2"}, 
+    {id:"option_3", option:"opject 3"}
+]; 
 
 for(let i = 0; i<select_objects.length; i++){
     var option = document.createElement("option"); 
@@ -68,7 +72,10 @@ function create_list_elements(){
 
         delete_btn.classList.add("delete_btn");
         delete_btn.innerHTML = "delete"; 
-        delete_btn.addEventListener('click', delete_func); 
+        delete_btn.addEventListener('click', function delete_func(){
+            this.parentNode.remove();
+
+        }); 
 
         li.appendChild(delete_btn); 
         ul_tag.appendChild(li);
@@ -115,9 +122,4 @@ function reset_fun(){
 
 }
 
-function delete_func(){
-
-    this.parentNode.remove();
-
-}
    
