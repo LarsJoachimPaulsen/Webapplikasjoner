@@ -11,13 +11,13 @@ const ul_tag = document.createElement("ul")
      
 document.body.append(main_tag); 
 
-const p_tag = document.createElement("p"); 
+let p_tag = document.createElement("p"); 
 main_tag.appendChild(p_tag); 
-main_tag.setAttribute("id", "p_tag"); 
+p_tag.id = "p_tag"; 
 
 const trener_js = document.createElement("p"); 
-trener_js.classList.add = "trener_JS"; 
-trener_js.setAttribute("id", "trener_JS"); 
+trener_js.class = "trener_JS"; 
+trener_js.id = "trener_JS"; 
 trener_js.innerHTML = "Jeg trener på JavaScript"; 
 
 main_tag.appendChild(trener_js); 
@@ -29,13 +29,23 @@ select_box.style.marginLeft = "auto";
 select_box.style.marginRight = "auto";  
 main_tag.appendChild(select_box); 
 
+const select_objects = [{id: "option_1", option:"object1"}, {id:"option_2", option:"object2"}, {id:"option_3", option:"opject 3"}]; 
+
+for(let i = 0; i<select_objects.length; i++){
+    var option = document.createElement("option"); 
+    option.id = select_objects[i].id; 
+    option.innerHTML = select_objects[i].option; 
+
+    select_box.appendChild(option);
+}
+
 const test_btn = document.createElement("button"); 
-test_btn.setAttribute("id", "test_btn"); 
+test_btn.id = "test_btn"; 
 test_btn.innerHTML = "test"; 
 main_tag.appendChild(test_btn); 
 
 const reset_btn = document.createElement("button"); 
-reset_btn.setAttribute("id", "reset_btn"); 
+reset_btn.id = "reset_btn"; 
 reset_btn.innerHTML = "reset"; 
 main_tag.appendChild(reset_btn); 
     
@@ -51,8 +61,6 @@ create_list_elements();
 //alert(document.innerHTML); 
 
 //var new_window = window.open("index.html", "newWindow", "width=500 height=700"); 
-
-
 
 
 function create_list_elements(){
@@ -75,14 +83,21 @@ function create_list_elements(){
 
 function test_func(){
 
+    
     let word = document.getElementById("trener_JS").innerText; 
+
+    console.log(word)
+
     let word_array = word.split(" "); 
+
+    console.log(word_array.length);
 
     let p = "";  
 
 
     for(let i = word_array.length - 1; i>=0; i--){
             p += word_array[i].substring(1) + " "; 
+
     }
 
     document.getElementById("p_tag").innerHTML = p;  
