@@ -66,7 +66,6 @@ function add_to_do_card(){
         delete_task_button.innerHTML= "delete task"; 
 
         titleNode.innerHTML = title;
-        //titleNode.value = document.getElementById("title").value;
         descriptionNode.innerHTML = descripion; 
         authorNode.innerHTML = author; 
         
@@ -77,12 +76,14 @@ function add_to_do_card(){
         container.appendChild(authorNode); 
         container.appendChild(finish_task_button); 
         container.appendChild(delete_task_button); 
-        container.classList.add("card"); 
+        container.class = card; 
 
         outer_box.appendChild(container); 
 
         finish_task_button.addEventListener('click', finish_task);
-        delete_task_button.addEventListener('click', delete_task); 
+        delete_task_button.addEventListener('click', function delete_task(){
+            this.parentNode.remove(); 
+        }); 
 
 
         close_pop_up(); 
@@ -154,13 +155,6 @@ function finish_task(){
     
 }
 
-function delete_task(){
-   // alert(this.parentNode.querySelector(".delete_btn").parentNode.innerHTML); 
-    this.parentNode.remove(); 
-
-
-}
-
 function check_description_length(e){
 
     if(e.key != "ArrowLeft" || e.key != "ArrowUp" || e.key != "ArrowRigth" || e.key != "ArrowDown" || e.key != "Backspace"){
@@ -193,15 +187,6 @@ function check_description_length(e){
 function sort_array(){
    
    
-    /*
-        console.log("\n\n");
-        console.log("before sort"); 
-        for(let i  = 0; i<finished_tasks_array.length; i++){
-            for(let j = 0; j< finished_tasks_array[i].length; j++){
-                console.log(finished_tasks_array[i][j]); 
-            }
-        }
-    */
    if(this.checked){
 
     // insertion sort based on the time of which task was completed.

@@ -67,11 +67,13 @@ function create_list_elements(){
 
     for(let i = 0; i<4; i++){
 
-        var li = document.createElement("li"); 
-        var delete_btn = document.createElement("button"); 
+        let li = document.createElement("li"); 
+        li.innerHTML = "listelement " + i;
+        let delete_btn = document.createElement("button"); 
 
         delete_btn.classList.add("delete_btn");
         delete_btn.innerHTML = "delete"; 
+
         delete_btn.addEventListener('click', function delete_func(){
             this.parentNode.remove();
 
