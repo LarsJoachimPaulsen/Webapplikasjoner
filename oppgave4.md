@@ -19,9 +19,13 @@ Progresseive Web app: -
 
 8
 
-### Hva er "Content-Type" i response header på https://www.hiof.no/tjenester/ (Lenker til en ekstern side.)
+### Hva er "Content-Type" i response header på https://www.hiof.no/tjenester/ 
 
-### Hva er "Cache-Control" i request header på https://www.hiof.no/tjenester/ (Lenker til en ekstern side.)
+text/html; charset = utf-8
+
+### Hva er "Cache-Control" i request header på https://www.hiof.no/tjenester/ 
+
+max-age = 0
 
 ###Hvilken protokoll bruker den siden?
 
