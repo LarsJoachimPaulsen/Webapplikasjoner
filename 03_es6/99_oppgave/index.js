@@ -229,10 +229,7 @@ try {
   (function UseParameterDestructuring1() {
     // Adjust the code to let the test succeed.
 
-	let a = 'Oslo' + 985;
-
-	  a =  ['Oslo', 985];
-	
+	const a = ['Oslo', 985];
 	
 	
 
@@ -251,15 +248,13 @@ try {
 
 
   
-  (function UseParameterDestructuring2() {
+  (function UseParameterDestructuring2() { 
     // Adjust the code to let the test succeed.
 
-	let a = 'Oslo' + 985;
-	
-	a = {
+	const a = {
 		name: 'Oslo', 
 		age: 985
-	}
+	};
 
     // Don't make changes below this line
 
