@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Modal = ({ addTodo, setFormData, formData, setModal }) => {
+  let remainingCharacters = 50;
   const handleSubmit = (event) => {
     event.preventDefault();
     addTodo();
@@ -27,10 +28,10 @@ const Modal = ({ addTodo, setFormData, formData, setModal }) => {
         <form id="todo_form" onSubmit={handleSubmit}>
           <label htmlFor="title">Title</label>
           <input id="title" value={formData.title} onChange={updateValue} name="title" />
-          <label htmlFor="description">Description</label>
-          <input id="descripton" value={formData.description} onChange={updateValue} name="description" />
+          <label htmlFor="description">Descriptions</label>
+          <input id="descripton" value={formData.description}  onChange={updateValue} name="description" />
           <label htmlFor="author">Author</label>
-          <input id="author" value={formData.author} onChange={updateValue} name="author" />
+          <input id="author" value={formData.author} on onChange={updateValue} name="author" />
           <button type="submit">Submit</button>
         </form>
       </section>

@@ -25,11 +25,11 @@ const TodosContainer = () => {
   };
 
   const completeTodo = (id) => {
-    const finishedTask = toDo.filter((todo) => todo.id === id);
+    const finishedTask = toDo.find((todo) => todo.id === id);
     console.log("lengde " + completedToDo.length);
    // finishedTask.id = completedToDo.length;
     console.log(finishedTask);
-    setCompletedToDo((prev) => [{ ...finishedTask }, ...prev]);
+    setCompletedToDo((prev) => [{ ...finishedTask}, ...prev]);
     removeTodo(id);
     // TODO: Update completedlist with todoItem (update state)
   };

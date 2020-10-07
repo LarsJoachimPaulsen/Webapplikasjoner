@@ -8,15 +8,16 @@ const CompleteList = ({ completedToDo }) => (
         <th> Title </th>
         <th> description </th>
         <th> Author </th>
+        <th> Time</th>
       </tr>
     </thead>
     <tbody>
       {completedToDo &&
         completedToDo.length > 0 &&
-        completedToDo.map((completedTodos) => (
+        completedToDo.map((completedTodos, index) => (
           //console.log(completedTodos.id);
           <CompleteItem
-            key={completedTodos.id+250}
+            key={index}
             completedToDo={completedTodos}
           />
       
