@@ -1,7 +1,7 @@
 import React from 'react';
 import CompleteItem from './CompleteItem';
 
-const CompleteList = ({ completedTodo }) => (
+const CompleteList = ({ completedToDo }) => (
   <table>
     <thead>
       <tr>
@@ -10,12 +10,17 @@ const CompleteList = ({ completedTodo }) => (
       </tr>
     </thead>
     <tbody>
-      {completedTodo &&
-        completedTodo.length > 0 &&
-        completedTodo.map((completedTodos) => (
-            console.log("completed title" + completedTodos.title)
-          <CompleteItem completedTodo={completedTodos} />
-        ))}
+      {completedToDo &&
+        completedToDo.length > 0 &&
+        completedToDo.map((completedTodos) => {
+          console.log(completedTodos.id);
+          return(
+          <CompleteItem
+            key={completedTodos.id}
+            completedToDo={completedTodos}
+          />
+          )
+        })}
     </tbody>
   </table>
 );

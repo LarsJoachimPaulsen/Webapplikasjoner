@@ -1,9 +1,9 @@
 import React from 'react';
 
-const CompleteItem = ({ CompletedTodo }) => (
+const CompleteItem = ({ completedToDo }) => (
   <tr>
-    <th>{CompletedTodo.title}</th>
-    <th>{CompletedTodo.description}</th>
+    <th>{completedToDo.title}</th>
+    <th>{completedToDo.description}</th>
   </tr>
 );
 

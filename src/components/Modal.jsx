@@ -1,7 +1,6 @@
 import React from 'react';
 
 // Modal delegates formhandling to its parent
-// TODO: Add necessary props to be able to handle addTodo, setFormdata, formData, setModal
 const Modal = ({ addTodo, setFormData, formData, setModal }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -17,10 +16,6 @@ const Modal = ({ addTodo, setFormData, formData, setModal }) => {
     }));
   };
 
-  // TODO: Update console.log with correct function
-  // TODO: Add onChange method to input
-  // TODO: Add value to input title (make input a "controlled" input)
-  // TODO: Add value to input description (make input a "controlled" input)
   return (
     <section id="modal">
       <section className="modal_inner_wrapper">
