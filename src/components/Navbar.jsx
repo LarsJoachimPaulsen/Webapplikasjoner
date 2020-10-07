@@ -1,11 +1,10 @@
 import React from 'react';
 
-const Navbar = ({ leftText, rightText }) => (
-  <>
-    <nav>
-      <h3>{leftText}</h3>
-      <h3>{rightText}</h3>
-    </nav>
-  </>
+const Navbar = () => (
+  <nav>
+    <h2>Todos</h2>
+    <p>User User</p>
+  </nav>
 );
+
 export default Navbar;
