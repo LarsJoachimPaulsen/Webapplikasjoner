@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Button from './TodoButton';
 import Modal from '../Modal';
 import TodoList from './TodoList.jsx';
-
+import CompletedList from './CompleteList';
 
 // TODO: Create CompletedList and CompletedItem components (they look like TodoList and TodoItem)
 // TODO: Import Modal, TodoList, CompletedList, Title
@@ -11,13 +11,12 @@ const TodosContainer = () => {
   const [modal, setModal] = useState(false);
   const [formData, setFormData] = useState({ title: '', description: '' });
   const [toDo, setTodo] = useState([]);
-  const [completedToDo, addCompletedToDo] = useState([]);
+  const [completedToDo, setCompletedToDo] = useState([]);
 
   const addTodo = () => {
-    setTodo((prev) => [ { id: toDo.length, completion: new Date(), ...formData},...prev ]);
+    setTodo((prev) => [{id: toDo.length, ...formData},...prev ]);
     setModal(false);
-    // TODO: Add todo to todoslist (update state)
-    // TODO: Close modal (update state)
+    console.log(formData);
     console.log(toDo);
   };
 
@@ -28,12 +27,13 @@ const TodosContainer = () => {
 
   const completeTodo = (id) => {
     // TODO: Find todoItem
-    // TODO: RemoveTodoItem from todos (update state)
+    const finishedTask = toDo.filter((todo)=> todo.id === id); 
+    removeTodo(id);
+    setCompletedToDo(finishedTask);
+    console.log("finished task");
+    console.log(completedToDo);
     // TODO: Update completedlist with todoItem (update state)
   };
-
- 
-
 
   // TODO: Use <Modal /> with necessary props to handle addTodo, formdata and modal visbility
   // TODO: Finish clickhandler on Button to be able to toggle Modal
@@ -67,8 +67,14 @@ const TodosContainer = () => {
         </>
       )}
 
-      {completedToDo.length < 1 &&(
+      {completedToDo.length < 1 ?(
       <p>Ingen completed || CompletedList</p>
+      ) : (
+        <>
+          <CompletedList
+
+          />
+        </>
       )}
     </div>
   );

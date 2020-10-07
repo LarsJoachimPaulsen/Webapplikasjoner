@@ -7,23 +7,19 @@ import TodoItem from './TodoItem.jsx';
 // TODO: Loop todo list (todos)
 // TODO: Add necessary props to <Todo /> item to be able to handle removeTodo and completeTodo (prop drilling)
 
-const Todos = ({ toDo, removeToDo, completeTodo }) => {
-return(
+const Todos = ({ toDo, removeToDo, completeTodo }) => (
 <ul id="todos">
     {toDo && toDo.length > 0 && (
-        toDo.map((todo) => {
-            
-            <>
+        toDo.map((todo) => (
             <TodoItem
+              key={todo.id}
               toDo={todo}
               removeToDo={removeToDo}
               completeTodo={completeTodo}
             />
-           </> 
-           
-        })
+        ))
         )}
  </ul>
-)}
+);
 
 export default Todos;
