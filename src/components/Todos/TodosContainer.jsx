@@ -20,15 +20,11 @@ const TodosContainer = () => {
 
   const removeTodo = (id) => {
     const newToDos = toDo.filter((todo) => todo.id !== id);
-    console.log(newToDos);
     setTodo(newToDos);
   };
 
   const completeTodo = (id) => {
     const finishedTask = toDo.find((todo) => todo.id === id);
-    console.log("lengde " + completedToDo.length);
-   // finishedTask.id = completedToDo.length;
-    console.log(finishedTask);
     setCompletedToDo((prev) => [{ ...finishedTask}, ...prev]);
     removeTodo(id);
     // TODO: Update completedlist with todoItem (update state)
