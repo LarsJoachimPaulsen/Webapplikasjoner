@@ -7,6 +7,7 @@ const CompleteList = ({ completedToDo }) => (
       <tr>
         <th> Title </th>
         <th> description </th>
+        <th> Author </th>
       </tr>
     </thead>
     <tbody>

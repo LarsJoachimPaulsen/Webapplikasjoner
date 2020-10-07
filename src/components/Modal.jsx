@@ -1,6 +1,5 @@
 import React from 'react';
 
-// Modal delegates formhandling to its parent
 const Modal = ({ addTodo, setFormData, formData, setModal }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -30,6 +29,8 @@ const Modal = ({ addTodo, setFormData, formData, setModal }) => {
           <input id="title" value={formData.title} onChange={updateValue} name="title" />
           <label htmlFor="description">Description</label>
           <input id="descripton" value={formData.description} onChange={updateValue} name="description" />
+          <label htmlFor="author">Author</label>
+          <input id="author" value={formData.author} onChange={updateValue} name="author" />
           <button type="submit">Submit</button>
         </form>
       </section>

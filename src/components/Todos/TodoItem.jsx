@@ -7,6 +7,7 @@ const TodoItem = ({ toDo, removeToDo, completeTodo }) => (
       <Title title={toDo.title} />
       <p>{toDo.description}</p>
       <p>{toDo.completion}</p>
+      <p>{toDo.author}</p>
     </header>
     <section>
       <button type="button" id="complete" onClick={() => completeTodo(toDo.id)}>Complete</button>

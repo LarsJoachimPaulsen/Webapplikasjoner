@@ -9,7 +9,7 @@ import CompleteList from './CompleteList';
 
 const TodosContainer = () => {
   const [modal, setModal] = useState(false);
-  const [formData, setFormData] = useState({ title: '', description: '' });
+  const [formData, setFormData] = useState({ title: '', description: '', author: '' });
   const [toDo, setTodo] = useState([]);
   const [completedToDo, setCompletedToDo] = useState([]);
 
