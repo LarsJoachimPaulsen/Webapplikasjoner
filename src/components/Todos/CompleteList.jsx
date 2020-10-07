@@ -13,10 +13,10 @@ const CompleteList = ({ completedToDo }) => (
       {completedToDo &&
         completedToDo.length > 0 &&
         completedToDo.map((completedTodos) => {
-          console.log(completedTodos.id);
+          //console.log(completedTodos.id);
           return(
           <CompleteItem
-            key={completedTodos.id}
+            key={completedTodos.id+250}
             completedToDo={completedTodos}
           />
           )
