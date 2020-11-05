@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --config webpack.production.config.js",
-    "dev": "webpack-dev-server --config webpack.development.config.js",
-    "clean": "rm -rf public"
+    "web-build": "webpack --config webpack.production.config.js",
+    "web-dev": "webpack-dev-server --config webpack.development.config.js",
+    "web-clean": "rm -rf public"
   },
   "keywords": [],
   "author": "",
