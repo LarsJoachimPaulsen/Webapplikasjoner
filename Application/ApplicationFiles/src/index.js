@@ -1,0 +1,10 @@
+import './style.css'; 
+import React from 'react'; 
+import ReactDOM from 'react-dom';
+
+import Main from './Main'; 
+
+const root = document.getElementById("app"); 
+
+ReactDOM.render(
+<h1></h1>);
