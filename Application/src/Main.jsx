@@ -1,7 +1,12 @@
 import React from 'react';
+import Navbar from '../Components/Nav'
+import Layout from '../Components/Layout';
 
 const Main = () =>(
-    <h1> Test </h1>
+    <Layout>
+        <Navbar></Navbar>
+    </Layout>
+    
 );
 
 export default Main; 
