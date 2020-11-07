@@ -1,4 +1,3 @@
-
 import userData from '../../data/users.js'; 
 import * as helpers from '../../utils/helpers.js'; 
 
@@ -18,7 +17,6 @@ export const list = () => {
 
 export const get = (id) => {
     const singelUser = helpers.findId(userData, id); 
-
     if(singelUser.error){
         return( singelUser); 
     }
@@ -83,7 +81,7 @@ export const remove = (id) => {
     userData.delete(id);
     return{
         status: 200, 
-        data: true 
+        data: true
     } 
 
 }; 

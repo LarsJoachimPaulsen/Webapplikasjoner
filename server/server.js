@@ -1,7 +1,6 @@
 import express from 'express'
 import { PORT, BASEURL, ENVIRONMENT } from './constants/constants.js';
 import morgan from 'morgan'; 
-import feedbacks from './API/routes/feedback.js';
 import users from './API/routes/users.js';
 import polls from './API/routes/polls.js';
 
@@ -14,7 +13,6 @@ if(ENVIRONMENT === 'development'){
 }
 
 app.use(express.json()); 
-app.use(`${BASEURL}/feedbacks`, feedbacks); 
 app.use(`${BASEURL}/users`, users); 
 app.use(`${BASEURL}/polls`, polls);
 

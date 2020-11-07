@@ -42,3 +42,21 @@ export const checkUserInput = (req, res, next) => {
 
     next(); 
 }
+
+export const pollInputCheck = (req, res, next) => {
+    const {pollname, question} = req.body; 
+
+    if(!pollname){
+        return res.status(400).json({
+            status: 400,
+            message: 'pollname is not given'
+        })
+    };
+    if(!question){
+        return res.status(400).json({
+            status: 400, 
+            error: 'a poll question is not given'
+        });
+    };
+    next();
+};
