@@ -1,4 +1,4 @@
-import { removeUser } from '../../Controllers/users/index.js';
+
 import userData from '../../data/users.js'; 
 import * as helpers from '../../utils/helpers.js'; 
 
@@ -80,7 +80,7 @@ export const remove = (id) => {
     if(!userToRemove){
         return userToRemove; 
     }
-
+    userData.delete(id);
     return{
         status: 200, 
         data: true 
