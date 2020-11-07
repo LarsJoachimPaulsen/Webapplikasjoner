@@ -22,6 +22,7 @@
   }, 
   "devDependencies": {
     "regenerator-runtime": "^0.13.7",
+    "eslint": "^7.10.0", 
     "nodemon": "^2.0.4" 
    
   }
