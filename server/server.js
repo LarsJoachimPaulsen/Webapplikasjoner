@@ -1,24 +1,28 @@
 import express from 'express'
+import { PORT, BASEURL, ENVIRONMENT } from './constants/constants.js';
+import morgan from 'morgan'; 
+import feedbacks from './API/routes/feedback.js';
+import users from './API/routes/users.js';
+import polls from './API/routes/polls.js';
 
-const PORT =5001;
 
-const BASEURL='/api/v1'
 
 const app = express(); 
 
+if(ENVIRONMENT === 'development'){
+    app.use(morgan('dev'));
+}
+
 app.use(express.json()); 
+app.use(`${BASEURL}/feedbacks`, feedbacks); 
+app.use(`${BASEURL}/users`, users); 
+app.use(`${BASEURL}/polls`, polls);
 
 //API route = BASEURL + endpoint. 
 // here the baseurl = localhost:5001/api/v1
 // endpoints are the names of the API's
 
 //testing
-app.get(`${BASEURL}/test`, (req, res)  =>{
-
-    res.json({msg:"virker", data: null, method: req.method});
-    
-
-}); 
 
 
 
@@ -33,5 +37,5 @@ app.all(`*`, (req, res, next) => {
 })
 
 app.listen(PORT, () =>{
-    console.log(`Listening on port ${PORT}`);
+    console.log(`Server running in ${ENVIRONMENT} environment . Listening on port: ${PORT}`);
 });
