@@ -1,3 +1,4 @@
+import { removeUser } from '../../Controllers/users/index.js';
 import userData from '../../data/users.js'; 
 import * as helpers from '../../utils/helpers.js'; 
 
@@ -70,4 +71,19 @@ export const create = (user) => {
         status: 200, 
         data: Object.fromEntries(userData) 
     };
+}; 
+
+export const remove = (id) => {
+
+    const userToRemove = helpers.findId(userData, id); 
+
+    if(!userToRemove){
+        return userToRemove; 
+    }
+
+    return{
+        status: 200, 
+        data: true 
+    } 
+
 }; 
