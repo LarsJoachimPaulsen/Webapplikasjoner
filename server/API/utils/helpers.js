@@ -9,6 +9,6 @@ export const findId = (map, id) => {
 }
 
 export const createId = (map) =>{
-    (map.size > 0 ? map.size + 1: 1).toString(); 
+    return (map.size > 0 ? map.size + 1: 1).toString(); 
 }
 
