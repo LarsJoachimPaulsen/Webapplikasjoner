@@ -22,4 +22,23 @@ export const validateFields = (req, res, next) => {
 
     next(); 
 }
- 
+
+export const checkUserInput = (req, res, next) => {
+
+    const{ username, password} = req.body; 
+
+    if(!username){
+        return res.status(400).json({
+            status: 400, 
+            message: 'Username is missing'
+        }); 
+    }
+    if(!password){
+        return res.status(400).json({
+            status: 400, 
+            message: "password is missing",
+        });
+    }
+
+    next(); 
+}

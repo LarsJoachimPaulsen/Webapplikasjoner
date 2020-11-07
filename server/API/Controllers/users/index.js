@@ -1,5 +1,5 @@
 import users from '../../data/users.js'; 
-import { list, get } from '../../models/user/index.js';
+import { list, get, update, create } from '../../models/user/index.js';
 
 export const getUsers = (req, res, next) => {
 
@@ -20,3 +20,29 @@ export const getUser = (req, res, next) => {
     });
 }; 
 
+export const updateUsers = (req, res, next) => {
+    const { id } = req.params; 
+    const {...users} = req.body; 
+
+    const {error, data, status} = update({id, ...users}); 
+
+    res.status(status).json({
+        status, 
+        error, 
+        data, 
+        param: id
+    });
+};
+
+export const createUser = (req, res, next) => {
+
+    const {id, ...user} = req.body; 
+
+    const{error, status, data} = create({id, ...user}); 
+    res.status(status).json({
+        status, 
+        data, 
+        error, 
+        param: id
+    });
+};
