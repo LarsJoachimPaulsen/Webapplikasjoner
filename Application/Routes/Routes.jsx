@@ -47,27 +47,46 @@ const Routes = () => (
 
             <Switch>
                 <Route exact path="/Get">
-                    <CreatePoll />
+                    <Get />
                 </Route>
             </Switch>
 
             <Switch>
                 <Route exact path="/Delete">
-                    <CreatePoll />
+                    <Delete />
                 </Route>
             </Switch>
 
             <Switch>
                 <Route exact path="/Put">
-                    <CreatePoll />
+                    <Put />
                 </Route>
             </Switch>
 
             <Switch>
                 <Route exact path="/Post">
-                    <CreatePoll />
+                    <Post />
                 </Route>
             </Switch>
+
+            <Switch>
+                <Route path="/Put/:id">
+                    <Put />
+                </Route>
+            </Switch>
+
+            <Switch>
+                <Route path="/Get/:id">
+                    <Get />
+                </Route>
+            </Switch>
+            <Switch>
+                <Route path="/Delete/:id">
+                    <Delete />
+                </Route>
+            </Switch>
+
+            
         </Layout>    
         
     </Router>
