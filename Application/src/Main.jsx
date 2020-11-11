@@ -1,12 +1,10 @@
 import React from 'react';
-import Navbar from '../Components/Nav'
-import Layout from '../Components/Layout';
+
+import Route from '../Routes/Routes';
 
 const Main = () =>(
-    <Layout>
-        <Navbar></Navbar>
-    </Layout>
-    
+   <Route/>
+        
 );
 
 export default Main; 
