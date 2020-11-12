@@ -12,10 +12,6 @@ import MainLayout from "../CommonComponents/Layout";
 import Poll from "../Pages/poll/Polls";
 import Login from "../Pages/login/Login";
 import CreatePoll from "../Pages/createPoll/createPoll"
-import Delete from '../Pages/APICommunication/delete/Delete';
-import Get from '../Pages/APICommunication/get/Get';
-import Put from '../Pages/APICommunication/put/put';
-import Post from '../Pages/APICommunication/post/create';
 
 const Routes = () => (
 
