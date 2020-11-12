@@ -20,7 +20,7 @@ const Poll = () => {
             setLoading(true); 
 
             try{
-                const response = await axios.get(`http://localhost:5001/api/v1/users`, {
+                const response = await axios.get(`http://localhost:5001/api/v1/polls`, {
                     transformResponse: createMap, 
                     responseType: 'json',
                 });

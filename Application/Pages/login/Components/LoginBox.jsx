@@ -8,13 +8,13 @@ const LoginBox = () => {
     }
 
     return (
-        <div className="form-box">
+        <div className="Form-box">
             <form onSubmit={createUser}> 
-            <label for ="email"> Epost </label>
+            <label htmlFor ="email"> Epost </label>
             <input type="email" id="email" placeholder="epost"/>
-            <label for="password"> Passord </label>
+            <label htmlFor="password"> Passord </label>
             <input type="password" id="password" placeholder="passord"/>
-            <label for="confirmPassword">Bekreft passord</label>
+            <label htmlFor="confirmPassword">Bekreft passord</label>
             <input type="password" id="confirmPassword" placeholder="bekreftPassord"/>
             <input type="submit" value="Registrer" />    
         

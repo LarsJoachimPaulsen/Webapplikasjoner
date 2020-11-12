@@ -11,16 +11,18 @@ import polls from './API/routes/polls.js';
 const app = express(); 
 
 
+if( ENVIRONMENT === 'development'){
+    const corsAllow = {
+        origin: 'http://localhost:3001', 
+        methods: ['GET', 'PUT', 'POST', 'DELETE'], 
+        allowedHeaders: ['Content-Type', 'Authorization'], 
+        preflightContinue: false,
 
-const corsAllow = {
-    origin: 'http://localhost:3001', 
-    methods: ['GET', 'PUT', 'POST', 'DELETE'], 
-    allowedHeaders: ['Content-Type', 'Authorization'], 
-    preflightContinue: false,
+    }
+    app.use(cors(corsAllow))
 
 }
 
-app.use(cors(corsAllow))
 
 if(ENVIRONMENT === 'development'){
     app.use(morgan('dev'));
