@@ -1,4 +1,4 @@
-'use strict';
+
 import pollData from '../../data/polls.js';
 import {
     list, 

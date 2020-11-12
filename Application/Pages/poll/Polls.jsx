@@ -12,8 +12,12 @@ const Polls = () => {
     const [polls, setPolls] = useState([]);
     const [error, setError] = useState('');
 
-    const createMap = ( {data} ) =>{
-        Object.entries(data);
+    const createMap = ({data} ) =>(
+        Object.entries(data)
+    );
+
+    const answerBtn = () =>{
+        alert("virker"); 
     }
  
 
@@ -22,14 +26,18 @@ const Polls = () => {
             setLoading(true); 
 
             try{
-                const response = await axios.get(`http://localhost:5001/api/v1/polls`, {
-                    transformResponse: createMap, 
-                    responseType: 'json',
-                });
+                const response = await axios.get('http://localhost:5001/api/v1/polls/',{
+                    transformResponse: createMap,
+                    responseType: 'json'
+                })
+                console.log(response);
                 if(response.status === 200) {
+                    console.log("kommer hit");
+                    
                     setPolls(response.data); 
                     setError(''); 
-                }
+                    
+                }; 
             }
             catch(error){
                 setPolls([]);
@@ -50,7 +58,7 @@ const Polls = () => {
         <>
             <div>
                 {loading && 'Loading ...'}
-                {polls && polls.length > 0 && <List data={polls} />}
+                {polls && polls.length > 0 && <List data={polls} answerbtn={answerBtn} />}
             </div>
            
         </>

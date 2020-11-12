@@ -1,4 +1,3 @@
-'use strict'
 import pollData from '../../data/polls.js'; 
 import * as helpers from '../../utils/helpers.js'; 
 
@@ -9,7 +8,7 @@ export const list = () => {
             status: 200, 
             message: 'no Polldata'
         };
-    }
+    } 
     return{
         status: 200, 
         data: Object.fromEntries(pollData)  
