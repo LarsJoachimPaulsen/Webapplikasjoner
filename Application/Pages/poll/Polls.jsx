@@ -16,8 +16,9 @@ const Polls = () => {
         Object.entries(data)
     );
 
-    const answerBtn = () =>{
-        alert("virker"); 
+    const answerBtn = (e) =>{
+        e.preventDefault(); 
+        alert(e.target.pollname); 
     }
  
 
