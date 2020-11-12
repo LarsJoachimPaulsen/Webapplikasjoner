@@ -1,56 +1,64 @@
 import axios from 'axios';
-import React, { useState, useEffect} from 'react'; 
-import {Link} from 'react-router-dom';
-import List from './Components/List';
+import { transform } from 'babel-core';
+import React, {useState, useEffect} from 'react';
+import Error from '../../CommonComponents/Error';
 
+const Poll = ({id}) => {
 
+    const paramId = {id}
+    const [loading, setLoading] = (false);
+    const [poll, setPoll] = ([]); 
+    const [error, setError] = (''); 
 
-const Poll = () => {
-
-    const [loading, setLoading] = useState(false);
-    const [polls, setPolls] = useState([]);
-    const [error, setError] = useState('');
-
-    const createMap = ( {data} ) =>{
-        Object.entries(data);
+    const createMap = ({data}) => {
+        Object.entries(data); 
     }
+    useEffect(() => {
 
-    useEffect(()  =>{
-        const fetchData = async () =>{
-            setLoading(true); 
+     const fetchData = async () =>{
+         setLoading(true)
+        try{
+        const response = await axios.get(`http://localhost:5001/api/v1/${paramId}`, {
+            transformRespons: createMap, 
+            responseType: 'json' 
 
-            try{
-                const response = await axios.get(`http://localhost:5001/api/v1/polls`, {
-                    transformResponse: createMap, 
-                    responseType: 'json',
-                });
-                if(response.status === 200) {
-                    setPolls(response.data); 
-                    setError(''); 
-                }
-            }
-            catch(error){
-                setPolls([]);
-                setError(error.message);
-                
-            }finally{
-                setLoading(false);
-                console.log(polls.length);
-               
-            }
 
-        };
-        fetchData();
+        });
+
+        if(response === 200){
+            setPoll(response.data); 
+            setError('');
+
+        }
+        }catch(error){
+            setError(error.message); 
+            setPoll([]); 
+        }finally{
+            setLoading(false)
+        }
+     }
+    
+     fetchData(); 
+    
     }, []);
-
 
     return(
         <div>
-            {loading && 'Loading ...'}
-            {error && <p>{error}</p>}
-            {polls && polls.length > 0 && <List data={polls} />}
+            <h2>Post page</h2>
+            <div>
+                {loading ? (
+                    'Loading...'
+                ): (
+                    <div>
+                        <h2>{poll.pollname}</h2>
+                        <p>{poll.question}</p>
+                        <ul> 
+                            <li></li>
+                        </ul>
+                    </div>
+                )}
+                {error ? <Error message={error} /> : null}
+            </div>
         </div>
-    );
-};
-
-export default Poll; 
+    )
+}
