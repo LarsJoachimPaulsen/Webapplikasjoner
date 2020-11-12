@@ -1,4 +1,5 @@
 import express from 'express'
+import cors from 'cors';
 import { PORT, BASEURL, ENVIRONMENT } from './constants/constants.js';
 import morgan from 'morgan'; 
 import users from './API/routes/users.js';
@@ -6,15 +7,28 @@ import polls from './API/routes/polls.js';
 
 
 
+
 const app = express(); 
+
+
+
+const corsAllow = {
+    origin: 'http://localhost:3001', 
+    methods: ['GET', 'PUT', 'POST', 'DELETE'], 
+    allowedHeaders: ['Content-Type', 'Authorization'], 
+    preflightContinue: false,
+
+}
+
+app.use(cors(corsAllow))
 
 if(ENVIRONMENT === 'development'){
     app.use(morgan('dev'));
 }
 
 app.use(express.json()); 
-app.use(`${BASEURL}/users`, users); 
-app.use(`${BASEURL}/polls`, polls);
+app.use(`${BASEURL}/users`,cors() ,users); 
+app.use(`${BASEURL}/polls`,cors() ,polls);
 
 //API route = BASEURL + endpoint. 
 // here the baseurl = localhost:5001/api/v1

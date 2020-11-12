@@ -8,19 +8,19 @@ import{
 } from 'react-router-dom';
 
 import MainPage from "../Pages/MainPage/MainPage";
-import Layout from "../CommonComponents/Layout";
+import MainLayout from "../CommonComponents/Layout";
 import Poll from "../Pages/poll/Poll";
 import Login from "../Pages/login/Login";
 import CreatePoll from "../Pages/createPoll/createPoll"
 import Delete from '../Pages/APICommunication/delete/Delete';
 import Get from '../Pages/APICommunication/get/Get';
-import Put from '../Pages/APICommunication/put/Put';
-import Post from '../Pages/APICommunication/post/Post';
+import Put from '../Pages/APICommunication/put/put';
+import Post from '../Pages/APICommunication/post/create';
 
 const Routes = () => (
 
     <Router>    
-        <Layout>
+        <MainLayout>
             <Switch>
                 <Route exact path="/">
                     <MainPage />
@@ -87,7 +87,7 @@ const Routes = () => (
             </Switch>
 
             
-        </Layout>    
+        </MainLayout>    
         
     </Router>
     

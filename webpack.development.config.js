@@ -8,6 +8,11 @@ module.exports = merge(common, {
     port: 3001,
     contentBase: path.resolve(__dirname, 'public'),
     historyApiFallback: true,
+    proxy: {
+      "/posts":{
+        target: "http://localhost:5001"
+      }
+    }
   },
   devtool: 'eval-source-map',
 });

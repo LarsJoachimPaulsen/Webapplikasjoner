@@ -26,10 +26,10 @@ const Navbar = () =>(
                 <nav> 
                     <h1> Oblig 6</h1>   
                     <div> 
-                       <NavLink to="/"> Startside</NavLink>
-                       <NavLink to="/login">Lag bruker</NavLink>
-                        <NavLink to="/poll"> Svar på poll</NavLink>
-                        <NavLink to="/createPoll"> Lag ny poll</NavLink>
+                        <NavLink to="/" activeClassName="active"> Startside</NavLink>
+                        <NavLink to="/login" activeClassName="active">Lag bruker</NavLink>
+                        <NavLink to="/poll" activeClassName="active"> Svar på poll</NavLink>
+                        <NavLink to="/createPoll" activeClassName="active"> Lag ny poll</NavLink>
                     </div> 
                 </nav>
             </NavMenuItem>
