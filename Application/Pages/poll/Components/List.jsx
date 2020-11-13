@@ -1,7 +1,12 @@
 import React from 'react'; 
 import styled from 'styled-components'; 
 
-const ListStyle = styled.li`
+const ListStyle = styled.div`
+    width: 15%;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid black 1px;
+    padding: 1.5%;
 
 `; 
 
@@ -11,7 +16,7 @@ const List = ({ data, answerbtn }) => (
 
     <>
         {data.map((item) => (
-            <li key={item[0]}>
+            <ListStyle key={item[0]}>
                 <header>
                     <h2 name="pollname">{item[1].pollname}</h2>
                 </header>
@@ -25,11 +30,10 @@ const List = ({ data, answerbtn }) => (
                 
 
                 <button onClick={answerbtn}> Answer </button>
-            </li>
+            </ListStyle>
 
             
         ))}
-
     </>
 )
 

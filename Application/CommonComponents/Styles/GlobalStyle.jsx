@@ -9,6 +9,11 @@ import normalize from 'styled-components';
     html{
         font-size: 20px
     }
+    body{
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
     
 `;
