@@ -1,7 +1,7 @@
 import users from '../../data/users.js'; 
 import { 
     list, 
-    get, 
+    get,
     update, 
     create,
     remove 

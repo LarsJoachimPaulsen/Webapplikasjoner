@@ -27,6 +27,7 @@ export const get = (id) => {
     }
 };
 
+
 export const update = (user) => {
 
     const {id, ...data} = user; 

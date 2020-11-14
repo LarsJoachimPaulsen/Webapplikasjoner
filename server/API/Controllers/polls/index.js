@@ -1,4 +1,3 @@
-
 import pollData from '../../data/polls.js';
 import {
     list, 
