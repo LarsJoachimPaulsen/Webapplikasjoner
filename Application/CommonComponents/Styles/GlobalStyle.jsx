@@ -10,9 +10,14 @@ import normalize from 'styled-components';
         font-size: 20px
     }
     body{
-        width: 80%;
+        width: 90%;
         margin-left: auto;
         margin-right: auto;
+    }
+    body main div div{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     
