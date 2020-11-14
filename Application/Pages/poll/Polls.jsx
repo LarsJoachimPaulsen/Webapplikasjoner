@@ -1,8 +1,10 @@
 import axios from 'axios';
-import React, { useState, useEffect} from 'react'; 
+import React, { useState, useEffect, useContext} from 'react'; 
 import {Link} from 'react-router-dom';
 import List from './Components/List';
 import Error from '../../CommonComponents/Error';
+import { UserContext } from '../../GlobalStates/UserStateProvider';
+
 
 
 
@@ -11,6 +13,9 @@ const Polls = () => {
     const [loading, setLoading] = useState(false);
     const [polls, setPolls] = useState([]);
     const [error, setError] = useState('');
+
+
+    const { user }= useContext(UserContext); 
 
     const createMap = ({data} ) =>(
         Object.entries(data)
@@ -56,7 +61,8 @@ const Polls = () => {
 
 
     return(
-        <>
+        <>  
+            {user ? <h1> hei {user}  </h1> : null} 
             <div>
                 {loading && 'Loading ...'}
                 {polls && polls.length > 0 && <List data={polls} answerbtn={answerBtn} />}

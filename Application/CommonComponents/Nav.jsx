@@ -30,7 +30,7 @@ const Navbar = () =>(
             <NavHeader> Oblig 6</NavHeader>  
             <NavMenu>
                 <NavLink to="/" activeClassName="active"> Startside</NavLink>
-                <NavLink to="/login" activeClassName="active">Lag bruker</NavLink>
+                <NavLink to="/createUser" activeClassName="active">Lag bruker</NavLink>
                 <NavLink to="/poll" activeClassName="active"> Svar på poll</NavLink>
                 <NavLink to="/createPoll" activeClassName="active"> Lag ny poll</NavLink>
             </NavMenu>

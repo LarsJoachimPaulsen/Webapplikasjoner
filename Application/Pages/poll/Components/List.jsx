@@ -50,16 +50,17 @@ const List = ({ data, answerbtn }) => (
                     <HStyle name="pollname">{item[1].pollname}</HStyle>
                 </HeaderStyle>
                 <PStyle name="question">{item[1].question}</PStyle>
-                <UlStyle>
-                    <li> {item[1].answers[0]}</li>
-                    <li> {item[1].answers[1]}</li>
-                    <li> {item[1].answers[2]}</li>
-                    <li> {item[1].answers[3]}</li>
-                </UlStyle>
+                <textarea defaultValue={item[1].answer} />
+            
                 <ButtonStyle onClick={answerbtn}> Answer </ButtonStyle>
             </ListStyle>
         ))}
     </>
 )
-
+  /*  <UlStyle>
+                    <li> {item[1].answers[0]}</li>
+                    <li> {item[1].answers[1]}</li>
+                    <li> {item[1].answers[2]}</li>
+                    <li> {item[1].answers[3]}</li>
+                </UlStyle> */
 export default List;

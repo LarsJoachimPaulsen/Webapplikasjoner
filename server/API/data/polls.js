@@ -5,12 +5,7 @@ export default new Map([
         {
             pollname: 'firstPoll', 
             question: 'firstPoll?', 
-            answers: [
-                'poll?',
-                'no?', 
-                'yes?', 
-                'pollpoll?'
-            ],
+            answer: '',
             userId: 1
         },
     ],
@@ -19,12 +14,7 @@ export default new Map([
         {
             pollname: 'secondPoll', 
             question: 'secondPoll?', 
-            answers: [
-                'poll?',
-                'no?', 
-                'yes?', 
-                'pollpoll?'
-            ],
+            answer: '',
             userId: 1
         },
     ],

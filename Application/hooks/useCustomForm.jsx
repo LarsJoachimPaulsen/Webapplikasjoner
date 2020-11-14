@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
- /*
+ 
 const useCustomForm = ({ initialState }) => {
 
     const [values, setValues] = useState( initialState || {}); 
@@ -9,12 +9,15 @@ const useCustomForm = ({ initialState }) => {
     const handleChange = (e) => {
         const {target} = e; 
         const {name, value} = target; 
-        setValues({...value, [name]:value});
+        setValues({...values, [name]:value});
+        console.log(values);
     };
 
     const validateForm = () => {
-        if(!values.title || values.title === '' || values.title.length < 3){
+        console.log(values.password);
+        if(!values.password || values.password === '' || values.password.length < 3){
             setErrors('Fyll ut tittel'); 
+           
         }
         else{
             setErrors(''); 
@@ -32,4 +35,4 @@ const useCustomForm = ({ initialState }) => {
 
 }
 
-export default useCustomForm; */
+export default useCustomForm; 

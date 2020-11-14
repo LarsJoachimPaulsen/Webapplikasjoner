@@ -12,6 +12,7 @@ const CreatePoll = () => {
     const [submitable, setSubmitable] = useState(false);
     const [values, setValues] = useState({pollname: '', question: '', alt1: '', alt2: '', alt3: '', alt4: '' })
 
+    
   
     
     const createNewPoll = (e) => {
@@ -41,7 +42,7 @@ const CreatePoll = () => {
         console.log(inputValue);
         //console.log(alt1.value); 
        // const {question, value} = target; 
-        setValues((...prev) => ({
+        setValues((prev) => ({
             ...prev,
             ...inputValue
         }));
@@ -53,11 +54,11 @@ const CreatePoll = () => {
         const postData = async () => {
             try{
                 
-                const response = await axios.post('http://localhost:5001/api/v1/polls', {
+                const response = await axios.post('http://localhost:5001/api/v1/polls', 
                     values,
-                });
+                );
                 console.log('trying')
-                if(response === 200){
+                if(response.status >= 200 && response.status <400){
                     console.log('posted')
                     setError(''); 
                     history.push('/polls'); 

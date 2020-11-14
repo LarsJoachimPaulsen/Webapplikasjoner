@@ -1,68 +1,62 @@
 import axios from 'axios';
 import React, {useEffect, useState, useContext} from 'react'; 
 import {useHistory} from 'react-router-dom'; 
+import UseCustomform from '../../../hooks/useCustomForm';
 import GlobalStateProvider, { UserContext } from '../../../GlobalStates/UserStateProvider';
 
+const initialState = {username: '', password: ''};
+
 const CreateUserBox = () => {
-    const [values, setValues] = useState();
-    const [submitable, setSubmitable] = useState(false); 
-    const [error, setError] = useState(''); 
-
-    const { setUser, state } = useContext(UserContext);
-
     
-    const handleChange = (e) =>{
-
-        const inputValue = e.target.value
-        setValues((prev) => ({
-            ...prev,
-            ...inputValue
-        })); 
-
-    };
+   // const [submitable, setSubmitable] = useState(false); 
+    const [error, setError] = useState(''); 
+    const { setUser } = useContext(UserContext);
 
 
-    const createUser = (e) =>{
-        e.preventDefault(); 
-        validateSubmit(); 
-        console.log(values)
-    };
+        const setMap = ({data}) => {
 
-    const validateSubmit = () => {
-        console.log("validate");
-        let goodToGo = false; 
-        if(!password.value || password.value === '' || password.length < 3){
-            setError('Passord feil')
-        }else if(password.value !== confirmPassword.value){
-            setError('passordene er ikke like')
+           return Object.fromEntries(data); 
         }
-        else{
-            goodToGo=true; 
-        }
-        if(goodToGo){
-            setSubmitable(true); 
-           
-        }
-    }
+        const history = useHistory(); 
 
-    useEffect(() =>{
-        if(submitable){
-            createNewUser();
-        };
-    }, [submitable]);
+        const {
+            values, 
+            errors, 
+            handleChange, 
+            validateForm, 
+            submitable,
+        } = UseCustomform(
+            initialState,
+        );
+    
 
+
+        const handleSubmit = (e) => {
+
+            e.preventDefault(); 
+            validateForm(); 
+            console.log(submitable);
+        }
+    
     const createNewUser = () => {
-
+        console.log(values); 
+        console.log({values});
         const sendData = async () => {
             try{
-                const response = await axios.post('http://localhost:5001/api/v1/users/', {
-                    values 
-                });
-               console.log(response); 
+                const response = await axios.post('http://localhost:5001/api/v1/users/', 
+                    values, 
+                );
 
-                if(response === 200){
+                console.log(response.data.data)
+                //console.log(response.data.data.keys()); 
+
+                if(response.status>=200 && response.status<400){
                     setError('');
-                    history.push('/polls');
+                    //history.push('/polls');
+        
+
+                    //console.log(id);
+                    setUser(values.username);
                 }    
             }catch(error){
                 setError(error.message);
@@ -72,21 +66,26 @@ const CreateUserBox = () => {
         sendData(); 
     }
 
+    useEffect(() =>{
+            if(submitable){
+                createNewUser();
+            };
+        }, [submitable]);
+
     return (
-         <GlobalStateProvider>    
-             {error ? <h3>{error.message}</h3> : null } 
+           
             <div className="Form-box">
-                <form onSubmit={createUser}> 
+                <form onSubmit={handleSubmit} > 
                 <label htmlFor ="username"> Epost </label>
-                <input type="email" value={values.username} id="username" placeholder="brukernavn" name="username" onChange={handleChange}/>
+                <input type="email" value={values.username} id="username" placeholder="brukernavn" onChange={handleChange} name="username" />
                 <label htmlFor="password"> Passord </label>
-                <input type="password" id="password" value={values.password} placeholder="passord" name="password" onChange={handleChange}/>
+                <input type="password" id="password" value={values.password} placeholder="passord" onChange={handleChange} name="password" />
                 <label htmlFor="confirmPassword">Bekreft passord</label>
                 <input type="password" id="confirmPassword" placeholder="bekreftPassord" name="confirmPassword"/>           
                 <input type="submit" value="Registrer" />   
                 </form>            
             </div>
-       </GlobalStateProvider>
+
     );
 }
 

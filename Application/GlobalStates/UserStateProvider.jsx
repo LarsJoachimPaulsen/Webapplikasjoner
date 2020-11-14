@@ -1,7 +1,7 @@
-import React, {createContext, useState} from 'react'; 
+import React, {createContext, useEffect, useState} from 'react'; 
 
 export const UserContext = createContext({
-    state: 'no user',
+    state: null,
     updateState: () => {}
 
 }); 
@@ -9,14 +9,14 @@ export const UserContext = createContext({
 const GlobalStateProvider = ( {children} ) => {
 
    
-    const [state, setUser] = useState({userId: '', user: ''}); 
+    const [user, setUser] = useState(null); 
 
-    const updateState = (userId, username) =>{
-        setUser({userId: userId, user: username}); 
-    };
+    useEffect(() => {
+        console.log(user)
+    }, [user]) 
 
     return (
-        <UserContext.Provider value={{ state, setUser, updateState}}>
+        <UserContext.Provider value={{ user, setUser }}>
             { children }
         </UserContext.Provider>
     );    
