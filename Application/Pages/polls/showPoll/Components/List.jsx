@@ -1,5 +1,6 @@
 import React from 'react'; 
 import styled from 'styled-components'; 
+import PollCard from './PollCard';
 
 const ListStyle = styled.div`
     width: 15%;
@@ -11,52 +12,26 @@ const ListStyle = styled.div`
     flex-direction: column;
 `; 
 
-const HeaderStyle = styled.header`
-    font-size: 1em;
-    margin: 0;
-    padding: 0;
-`; 
-
-const HStyle = styled.h2`
-    margin: 0;
-    padding: 0;
-`;
-
-const PStyle = styled.p`
-    margin: 0;
-    padding: 3px 0 10px 0;
-`; 
-
-const UlStyle = styled.ul`
-    margin: 0 0 0 20px;
-    padding: 0;
-`; 
-
-const ButtonStyle = styled.button`
-    width: 50%;
-    border: solid 1px darkgrey;
-    background-color: #ebe8f7;
-    font-size: 0.9em;
-    margin: 15px 0 0 0;
-    padding: 3px;
-`; 
 
 
-const List = ({ data, answerbtn }) => (
+
+const List = ({ data  }) => {
+    
+    const answerPoll = (id) => {
+
+        console.log(id);
+    }
+
+    return(
     <>
         {data.map((item) => (
             <ListStyle key={item[0]}>
-                <HeaderStyle>
-                    <HStyle name="pollname">{item[1].pollname}</HStyle>
-                </HeaderStyle>
-                <PStyle name="question">{item[1].question}</PStyle>
-                <textarea defaultValue={item[1].answer} />
-            
-                <ButtonStyle onClick={answerbtn}> Answer </ButtonStyle>
+                <PollCard item={item} answerPoll={answerPoll} />
             </ListStyle>
         ))}
     </>
-)
+    )
+}
   /*  <UlStyle>
                     <li> {item[1].answers[0]}</li>
                     <li> {item[1].answers[1]}</li>
