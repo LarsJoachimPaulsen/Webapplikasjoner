@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 const StyledNav = styled.nav`
-    width: 35%;
+    width: 25%;
     margin-left: auto;
     margin-right: auto;
     padding: 0.5em;
@@ -29,7 +29,6 @@ const Navbar = () =>(
     <StyledNav>    
             <NavHeader> Oblig 6</NavHeader>  
             <NavMenu>
-                <NavLink to="/" activeClassName="active"> Startside</NavLink>
                 <NavLink to="/createUser" activeClassName="active">Lag bruker</NavLink>
                 <NavLink to="/poll" activeClassName="active"> Svar på poll</NavLink>
                 <NavLink to="/createPoll" activeClassName="active"> Lag ny poll</NavLink>
