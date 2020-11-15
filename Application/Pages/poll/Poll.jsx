@@ -10,9 +10,10 @@ const Poll = ({id}) => {
     const [poll, setPoll] = ([]); 
     const [error, setError] = (''); 
 
-    const createMap = ({data}) => {
-        Object.entries(data); 
-    }
+    const createMap = ({data}) => (
+        Object.entries(data) 
+    ); 
+    
     useEffect(() => {
 
      const fetchData = async () =>{
@@ -62,3 +63,5 @@ const Poll = ({id}) => {
         </div>
     )
 }
+
+export default Poll;

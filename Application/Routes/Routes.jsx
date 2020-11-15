@@ -9,7 +9,7 @@ import{
 
 import MainPage from "../Pages/MainPage/MainPage";
 import MainLayout from "../CommonComponents/Layout";
-import Poll from "../Pages/poll/Polls";
+import Polls from "../Pages/poll/Polls";
 import Login from "../Pages/login/login"
 import CreateUser from '../Pages/createUser/CreateUser';
 import CreatePoll from "../Pages/createPoll/createPoll"
@@ -20,7 +20,7 @@ const Routes = () => (
         <MainLayout>
             <Switch>
                 <Route exact path="/">
-                    <Poll />
+                    <Polls />
                 </Route>
             </Switch>
         
@@ -37,8 +37,8 @@ const Routes = () => (
             </Switch>
 
             <Switch>
-                <Route exact path="/poll">
-                    <Poll />
+                <Route exact path="/polls">
+                    <Polls />
                 </Route>
             </Switch>
 
@@ -47,15 +47,6 @@ const Routes = () => (
                     <CreatePoll />
                 </Route>
             </Switch>
-
-
-            <Switch>
-                <Route path="/Poll/:id">
-                    <Poll />
-                </Route>
-            </Switch>
-
-            
 
             
         </MainLayout>    
