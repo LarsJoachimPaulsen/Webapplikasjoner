@@ -3,41 +3,8 @@ import React, {useEffect, useState, useContext} from 'react';
 import {useHistory} from 'react-router-dom'; 
 import UseCustomform from '../../../hooks/useCustomForm';
 import GlobalStateProvider, { UserContext } from '../../../GlobalStates/UserStateProvider';
-import styled from 'styled-components';
 
 const initialState = {username: '', password: ''};
-
-const StyledForm = styled.form`
-    display:block; 
-    background-color: #ffe2c9; 
-    box-shadow: 10px 10px 5px 0px rgba(184,178,219,1);
-    padding: 1.5%;
-    width: 20%; 
-`;
-
-const StyledLabel = styled.label`
-    display: inline-block; 
-    float: left; 
-    margin-bottom: 1%;
-    font-size: 1.2em;
-`;
-
-const StyledInput = styled.input`
-    display: block; 
-    width: 90%; 
-    float: left;
-    margin-bottom: 3%;
-    font-size: 0.8em;
-`;
-
-const StyledInputSubmit = styled.input`
-    width: auto;
-    border: solid 1px darkgrey;
-    background-color: #ebe8f7;
-    font-size: 0.8em;
-    margin: 15px 0 0 0;
-    padding: 3px;
-`;
 
 const CreateUserBox = () => {
     
@@ -76,8 +43,12 @@ const CreateUserBox = () => {
                 const response = await axios.post('http://localhost:5001/api/v1/users/', 
                     values, 
                 );
+<<<<<<< HEAD
 
                 console.log(response.data)
+=======
+                console.log(response.data.data)
+>>>>>>> d76ae6ecd81d202659ccf088abc3688a78eeedbb
                 //console.log(response.data.data.keys()); 
 
                 if(response.status>=200 && response.status<400){
@@ -89,9 +60,7 @@ const CreateUserBox = () => {
                      
                     history.push('/polls');
         
-
                     //console.log(id);
-                   
                 }    
             }catch(error){
                 setError(error.message);
@@ -109,19 +78,17 @@ const CreateUserBox = () => {
 
     return (
         <div className="Form-box">
-            <StyledForm onSubmit={handleSubmit} > 
-                <StyledLabel htmlFor ="username"> Epost </StyledLabel>
-                    <StyledInput type="email" value={values.username} id="username" placeholder="Brukernavn" onChange={handleChange} name="username" />
-                <StyledLabel htmlFor="password"> Passord </StyledLabel>
-                    <StyledInput type="password" id="password" value={values.password} placeholder="Passord" onChange={handleChange} name="password" />
-                <StyledLabel htmlFor="confirmPassword">Bekreft passord</StyledLabel>
-                    <StyledInput type="password" id="confirmPassword" placeholder="Bekreft passord" name="confirmPassword"/>           
-                <StyledInputSubmit type="submit" value="Registrer" />   
-            </StyledForm>            
+            <form onSubmit={handleSubmit} > 
+                <label htmlFor ="username"> Epost </label>
+                    <input type="email" value={values.username} id="username" placeholder="Brukernavn" onChange={handleChange} name="username" />
+                <label htmlFor="password"> Passord </label>
+                    <input type="password" id="password" value={values.password} placeholder="Passord" onChange={handleChange} name="password" />
+                <label htmlFor="confirmPassword">Bekreft passord</label>
+                    <input type="password" id="confirmPassword" placeholder="Bekreft passord" name="confirmPassword"/>           
+                <input class="inputSubmit" type="submit" value="Registrer" />   
+            </form>            
         </div>
     );
 }
-
-
 
 export default CreateUserBox;
