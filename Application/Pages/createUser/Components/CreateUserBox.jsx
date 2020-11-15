@@ -7,10 +7,6 @@ import styled from 'styled-components';
 
 const initialState = {username: '', password: ''};
 
-const StyledDivForm = styled.div`
-
-`;
-
 const StyledForm = styled.form`
     display:block; 
     background-color: #ffe2c9; 
@@ -43,18 +39,11 @@ const StyledInputSubmit = styled.input`
     padding: 3px;
 `;
 
-
-
-
-
-
-
 const CreateUserBox = () => {
     
    // const [submitable, setSubmitable] = useState(false); 
     const [error, setError] = useState(''); 
     const { setUser } = useContext(UserContext);
-
 
         const setMap = ({data}) => {
 
@@ -71,8 +60,6 @@ const CreateUserBox = () => {
         } = UseCustomform(
             initialState,
         );
-    
-
 
         const handleSubmit = (e) => {
 
@@ -116,19 +103,17 @@ const CreateUserBox = () => {
         }, [submitable]);
 
     return (
-           
-            <StyledDivForm className="Form-box">
-                <StyledForm onSubmit={handleSubmit} > 
-                    <StyledLabel htmlFor ="username"> Epost </StyledLabel>
-                        <StyledInput type="email" value={values.username} id="username" placeholder="brukernavn" onChange={handleChange} name="username" />
-                    <StyledLabel htmlFor="password"> Passord </StyledLabel>
-                        <StyledInput type="password" id="password" value={values.password} placeholder="passord" onChange={handleChange} name="password" />
-                    <StyledLabel htmlFor="confirmPassword">Bekreft passord</StyledLabel>
-                        <StyledInput type="password" id="confirmPassword" placeholder="bekreftPassord" name="confirmPassword"/>           
-                    <StyledInputSubmit type="submit" value="Registrer" />   
-                </StyledForm>            
-            </StyledDivForm>
-
+        <div className="Form-box">
+            <StyledForm onSubmit={handleSubmit} > 
+                <StyledLabel htmlFor ="username"> Epost </StyledLabel>
+                    <StyledInput type="email" value={values.username} id="username" placeholder="Brukernavn" onChange={handleChange} name="username" />
+                <StyledLabel htmlFor="password"> Passord </StyledLabel>
+                    <StyledInput type="password" id="password" value={values.password} placeholder="Passord" onChange={handleChange} name="password" />
+                <StyledLabel htmlFor="confirmPassword">Bekreft passord</StyledLabel>
+                    <StyledInput type="password" id="confirmPassword" placeholder="Bekreft passord" name="confirmPassword"/>           
+                <StyledInputSubmit type="submit" value="Registrer" />   
+            </StyledForm>            
+        </div>
     );
 }
 
