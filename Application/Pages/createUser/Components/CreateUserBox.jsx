@@ -82,7 +82,8 @@ const CreateUserBox = () => {
 
                 if(response.status>=200 && response.status<400){
                     setError('');
-
+                    
+                    console.log(response.length);
                      setUser({userId: '1', username: values.username});
                      
                      history.push('/polls');
