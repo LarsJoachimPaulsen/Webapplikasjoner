@@ -1,11 +1,11 @@
-import users from '../../data/users.js'; 
+import users from '../../model/users.js'; 
 import { 
     list, 
     get,
     update, 
     create,
     remove 
-    } from '../../models/user/index.js';
+    } from '../../services/user/index.js';
 
 export const getUsers = (req, res, next) => {
 

@@ -1,4 +1,4 @@
-import pollData from '../../data/polls.js';
+import pollData from '../../model/polls.js';
 import {
     list, 
     getSingelPoll, 
@@ -6,7 +6,7 @@ import {
     newPoll,
     removePoll
 
-} from '../../models/poll/index.js'; 
+} from '../../services/poll/index.js'; 
 
 export const getPolls = (req, res, next) =>{
 

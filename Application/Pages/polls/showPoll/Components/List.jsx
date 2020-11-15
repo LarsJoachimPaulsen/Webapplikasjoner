@@ -1,6 +1,7 @@
-import React from 'react'; 
+import React, {useState} from 'react'; 
 import styled from 'styled-components'; 
 import PollCard from './PollCard';
+
 
 const ListStyle = styled.div`
     width: 15%;
@@ -16,17 +17,24 @@ const ListStyle = styled.div`
 
 
 const List = ({ data  }) => {
+
+    const [answeredPoll, setAnsweredPoll] = useState({pollname: '', pollquestion: '', pollanswer: ''});
     
     const answerPoll = (id) => {
-
         console.log(id);
+
+        setAnsweredPoll({...data[id-1][1]})
+
+        console.log(answeredPoll)
     }
 
     return(
     <>
         {data.map((item) => (
             <ListStyle key={item[0]}>
-                <PollCard item={item} answerPoll={answerPoll} />
+                <PollCard 
+                item={item} 
+                answerPoll={answerPoll} />
             </ListStyle>
         ))}
     </>
