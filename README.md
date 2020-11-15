@@ -2,11 +2,13 @@
 
 ## Instalation guide
 
-### 1: npm/yarn install
+### 1: cd Application
 
-### 2: cd server
+### 2: npm/yarn install
 
-### 3: npm/yarn install
+### 3: cd ../server
+
+### 4: npm/yarn install
 
 ## Starting server: 
 
