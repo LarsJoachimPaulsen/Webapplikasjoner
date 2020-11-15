@@ -17,6 +17,11 @@ const PStyle = styled.p`
     padding: 3px 0 10px 0;
 `; 
 
+const UlStyle = styled.ul`
+    margin: 0 0 0 20px;
+    padding: 0;
+`; 
+
 const ButtonStyle = styled.button`
     width: 50%;
     border: solid 1px darkgrey;
@@ -26,20 +31,18 @@ const ButtonStyle = styled.button`
     padding: 3px;
 `; 
 
-const PollCard = ({item, answerPoll}) => {
+const PollCard = ({item, answerPoll}) => (
 
-    let [textAreaValue, setTextAreaValue] = useState(item[1].answer);
-   return (
     <>
         <HeaderStyle>
             <HStyle name="pollname" value={item[1].pollname}>{item[1].pollname}</HStyle>
             </HeaderStyle>
             <PStyle name="question" value={item[1].question}>{item[1].question}</PStyle>
-            <textarea value={textAreaValue} onChange={(e) => {setTextAreaValue(e.target.value); console.log(textAreaValue) } } />
+            <textarea name="answer" defaultValue={item[1].answer} />
 
         <ButtonStyle onClick={() => answerPoll(item[0])}> Answer </ButtonStyle>
     </>
-    )
-}    
+)
+   
 
 export default PollCard; 

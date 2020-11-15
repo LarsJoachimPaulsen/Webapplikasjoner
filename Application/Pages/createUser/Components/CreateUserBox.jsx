@@ -44,11 +44,6 @@ const StyledInputSubmit = styled.input`
 `;
 
 
-
-
-
-
-
 const CreateUserBox = () => {
     
    // const [submitable, setSubmitable] = useState(false); 
@@ -95,11 +90,14 @@ const CreateUserBox = () => {
 
                 if(response.status>=200 && response.status<400){
                     setError('');
-                    //history.push('/polls');
+
+                     setUser({userId: '1', username: values.username});
+                     
+                     history.push('/polls');
         
 
                     //console.log(id);
-                    setUser({userId: '1', username: values.username});
+                   
                 }    
             }catch(error){
                 setError(error.message);

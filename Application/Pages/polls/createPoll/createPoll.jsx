@@ -1,22 +1,25 @@
 import axios from 'axios';
-import React, {useEffect, useState} from 'react'; 
+import React, {useEffect, useState, useContext} from 'react'; 
 import { useHistory } from 'react-router-dom';
 //import useCustomForm from '../../hooks/useCustomForm'
-
+import {UserContext} from '../../../GlobalStates/UserStateProvider';
 
 
 const CreatePoll = () => {
-
+    const { user } = useContext(UserContext);
     const history = useHistory(); 
     const [error, setError] = useState(''); 
     const [submitable, setSubmitable] = useState(false);
-    const [values, setValues] = useState({pollname: '', question: '', answer: '' });
+    const [values, setValues] = useState({pollname: '', question: '', answer: '', createdByUserId: user.userId });
 
+     
     
-  
+    
     
     const createNewPoll = (e) => {
         e.preventDefault(); 
+        
+        console.log(values);
         validateForm(); 
       //  console.log(values.title);
         console.log(submitable);

@@ -19,7 +19,7 @@ const ListStyle = styled.div`
 
 const List = ({ data  }) => {
 
-    const [answeredPoll, setAnsweredPoll] = useState({pollname: '', pollquestion: '', answer: ''});
+    const [answeredPoll, setAnsweredPoll] = useState({pollId: '', pollname: '', pollquestion: '', answer: ''});
     
 
     const { user } = useContext(UserContext); 
@@ -34,21 +34,18 @@ const List = ({ data  }) => {
         username = user.username;
     }, [user])
 
-
-
     const answerPoll = (id) => {
         console.log(data.pollanswer);
 
-        setAnsweredPoll({...data[id-1][1]})
+        setAnsweredPoll({
+            id,
+            ...data[id-1][1]
+        })
 
         console.log(answeredPoll)
     }
 
 
-    const updateAnswerText = (e) => {
-
-
-    }
 
     return(
     <>
@@ -57,6 +54,7 @@ const List = ({ data  }) => {
                 <PollCard 
                 item={item} 
                 answerPoll={answerPoll}
+            
 
                 />
             </ListStyle>

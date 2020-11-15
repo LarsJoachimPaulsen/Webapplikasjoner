@@ -6,7 +6,7 @@ export default new Map([
             pollname: 'firstPoll', 
             question: 'firstPoll?', 
             answer: '',
-            userId: 1
+            createdByUSerId: 1
         },
     ],
     [
@@ -15,7 +15,7 @@ export default new Map([
             pollname: 'secondPoll', 
             question: 'secondPoll?', 
             answer: '',
-            userId: 1
+            createdByUserId: 1
         },
     ],
 ]);  
