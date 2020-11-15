@@ -17,11 +17,6 @@ const PStyle = styled.p`
     padding: 3px 0 10px 0;
 `; 
 
-const UlStyle = styled.ul`
-    margin: 0 0 0 20px;
-    padding: 0;
-`; 
-
 const ButtonStyle = styled.button`
     width: 50%;
     border: solid 1px darkgrey;
