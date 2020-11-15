@@ -9,10 +9,9 @@ import{
 
 import MainPage from "../Pages/MainPage/MainPage";
 import MainLayout from "../CommonComponents/Layout";
-import Poll from "../Pages/poll/Polls";
-import Login from "../Pages/login/login"
+import Poll from "../Pages/polls/showPoll/Polls";
 import CreateUser from '../Pages/createUser/CreateUser';
-import CreatePoll from "../Pages/createPoll/createPoll"
+import CreatePoll from "../Pages/polls/createPoll/createPoll"
 
 const Routes = () => (
 
@@ -27,12 +26,6 @@ const Routes = () => (
             <Switch>
                 <Route exact path="/createUser">
                     <CreateUser />
-                </Route>
-            </Switch>
-
-            <Switch>
-                <Route exact path="/login"> 
-                    <Login /> 
                 </Route>
             </Switch>
 

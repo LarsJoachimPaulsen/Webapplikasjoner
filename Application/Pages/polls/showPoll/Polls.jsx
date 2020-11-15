@@ -2,8 +2,8 @@ import axios from 'axios';
 import React, { useState, useEffect, useContext} from 'react'; 
 import {Link} from 'react-router-dom';
 import List from './Components/List';
-import Error from '../../CommonComponents/Error';
-import { UserContext } from '../../GlobalStates/UserStateProvider';
+
+import { UserContext } from '../../../GlobalStates/UserStateProvider';
 
 
 
