@@ -1,4 +1,4 @@
-import React from 'react'; 
+import React, {useState} from 'react'; 
 import styled from 'styled-components'; 
 
 const HeaderStyle = styled.header`
@@ -31,17 +31,20 @@ const ButtonStyle = styled.button`
     padding: 3px;
 `; 
 
-const PollCard = ({item, answerPoll}) => (
+const PollCard = ({item, answerPoll}) => {
 
+    let [textAreaValue, setTextAreaValue] = useState(item[1].answer);
+   return (
     <>
         <HeaderStyle>
-            <HStyle name="pollname">{item[1].pollname}</HStyle>
+            <HStyle name="pollname" value={item[1].pollname}>{item[1].pollname}</HStyle>
             </HeaderStyle>
-            <PStyle name="question">{item[1].question}</PStyle>
-            <textarea defaultValue={item[1].answer} />
+            <PStyle name="question" value={item[1].question}>{item[1].question}</PStyle>
+            <textarea value={textAreaValue} onChange={(e) => {setTextAreaValue(e.target.value); console.log(textAreaValue) } } />
 
         <ButtonStyle onClick={() => answerPoll(item[0])}> Answer </ButtonStyle>
     </>
-)
+    )
+}    
 
 export default PollCard; 

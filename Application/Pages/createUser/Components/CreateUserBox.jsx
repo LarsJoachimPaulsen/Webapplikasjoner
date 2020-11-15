@@ -56,7 +56,7 @@ const CreateUserBox = () => {
         
 
                     //console.log(id);
-                    setUser(values.username);
+                    setUser({userId: '1', username: values.username});
                 }    
             }catch(error){
                 setError(error.message);

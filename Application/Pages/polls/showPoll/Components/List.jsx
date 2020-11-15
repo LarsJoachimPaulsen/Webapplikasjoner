@@ -1,6 +1,7 @@
-import React, {useState} from 'react'; 
+import React, {useState, useContext, useEffect} from 'react'; 
 import styled from 'styled-components'; 
 import PollCard from './PollCard';
+import {UserContext} from '../../../../GlobalStates/UserStateProvider';
 
 
 const ListStyle = styled.div`
@@ -18,14 +19,35 @@ const ListStyle = styled.div`
 
 const List = ({ data  }) => {
 
-    const [answeredPoll, setAnsweredPoll] = useState({pollname: '', pollquestion: '', pollanswer: ''});
+    const [answeredPoll, setAnsweredPoll] = useState({pollname: '', pollquestion: '', answer: ''});
     
+
+    const { user } = useContext(UserContext); 
+
+    let paramId = user.userId;
+    let username = user.username; 
+    //let pollId; 
+
+
+    useEffect(()=>{
+        paramId = user.userId;
+        username = user.username;
+    }, [user])
+
+
+
     const answerPoll = (id) => {
-        console.log(id);
+        console.log(data.pollanswer);
 
         setAnsweredPoll({...data[id-1][1]})
 
         console.log(answeredPoll)
+    }
+
+
+    const updateAnswerText = (e) => {
+
+
     }
 
     return(
@@ -34,7 +56,9 @@ const List = ({ data  }) => {
             <ListStyle key={item[0]}>
                 <PollCard 
                 item={item} 
-                answerPoll={answerPoll} />
+                answerPoll={answerPoll}
+
+                />
             </ListStyle>
         ))}
     </>

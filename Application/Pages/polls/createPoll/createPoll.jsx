@@ -10,7 +10,7 @@ const CreatePoll = () => {
     const history = useHistory(); 
     const [error, setError] = useState(''); 
     const [submitable, setSubmitable] = useState(false);
-    const [values, setValues] = useState({pollname: '', question: '', alt1: '', alt2: '', alt3: '', alt4: '' })
+    const [values, setValues] = useState({pollname: '', question: '', answer: '' });
 
     
   
@@ -92,19 +92,7 @@ const CreatePoll = () => {
 
                 <label htmlFor="question" name="title" >spørsmål: </label>
                 <input type="text" id="question" required value={values.question} onChange={handleChange} name="question"  /> 
-            
-                <label htmlFor="alt1"> Alternativ1 </label>
-                <input type="text" id="alt1" required  value={values.alt1} onChange={handleChange} name="alt1" />
-
-                <label htmlFor="alt2">Navn på poll</label>
-                <input id="alt2" type="text" required value={values.alt2} onChange={handleChange} name="alt2" />
-
-                <label htmlFor="alt3">Navn på poll</label>
-                <input id="alt3" type="text" required value={values.alt3} onChange={handleChange} name="alt3" />
-
-                <label htmlFor="alt4">Navn på poll</label>
-                <input id="alt4" type="text" required value={values.alt4} onChange={handleChange} name="alt4" />
-            
+        
                 <input type='submit' value="Send inn"/>   
                 
             </form>

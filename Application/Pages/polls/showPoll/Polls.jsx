@@ -62,7 +62,7 @@ const Polls = () => {
 
     return(
         <>  
-            {user ? <h1> hei {user}  </h1> : null} 
+            {user.username === '' ? null : <h1> hei {user.username}  </h1>} 
             <div>
                 {loading && 'Loading ...'}
                 {polls && polls.length > 0 && <List data={polls} answerbtn={answerBtn} />}
