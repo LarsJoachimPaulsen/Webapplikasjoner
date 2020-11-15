@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import PollCard from './PollCard';
 import {UserContext} from '../../../../GlobalStates/UserStateProvider';
 
-
 const ListStyle = styled.div`
     width: 15%;
     margin: 0 1.2em 0 0;
@@ -14,20 +13,15 @@ const ListStyle = styled.div`
     flex-direction: column;
 `; 
 
-
-
-
 const List = ({ data  }) => {
 
     const [answeredPoll, setAnsweredPoll] = useState({pollId: '', pollname: '', pollquestion: '', answer: ''});
     
-
     const { user } = useContext(UserContext); 
 
     let paramId = user.userId;
     let username = user.username; 
     //let pollId; 
-
 
     useEffect(()=>{
         paramId = user.userId;
@@ -45,8 +39,6 @@ const List = ({ data  }) => {
         console.log(answeredPoll)
     }
 
-
-
     return(
     <>
         {data.map((item) => (
@@ -62,10 +54,5 @@ const List = ({ data  }) => {
     </>
     )
 }
-  /*  <UlStyle>
-                    <li> {item[1].answers[0]}</li>
-                    <li> {item[1].answers[1]}</li>
-                    <li> {item[1].answers[2]}</li>
-                    <li> {item[1].answers[3]}</li>
-                </UlStyle> */
+
 export default List;
