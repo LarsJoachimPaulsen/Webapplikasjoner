@@ -43,12 +43,7 @@ const CreateUserBox = () => {
                 const response = await axios.post('http://localhost:5001/api/v1/users/', 
                     values, 
                 );
-<<<<<<< HEAD
-
-                console.log(response.data)
-=======
                 console.log(response.data.data)
->>>>>>> d76ae6ecd81d202659ccf088abc3688a78eeedbb
                 //console.log(response.data.data.keys()); 
 
                 if(response.status>=200 && response.status<400){
