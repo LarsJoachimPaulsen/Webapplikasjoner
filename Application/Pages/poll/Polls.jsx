@@ -1,14 +1,14 @@
 import axios from 'axios';
 import React, { useState, useEffect, useContext} from 'react'; 
 import {Link} from 'react-router-dom';
-import List from './Components/PollList';
+import List from './Components/List';
 import Error from '../../CommonComponents/Error';
 import { UserContext } from '../../GlobalStates/UserStateProvider';
 
 
 
 
-const Polls = ( {findPollId} ) => {
+const Polls = () => {
 
     const [loading, setLoading] = useState(false);
     const [polls, setPolls] = useState([]);
@@ -21,7 +21,11 @@ const Polls = ( {findPollId} ) => {
         Object.entries(data)
     );
 
-
+    const answerBtn = (e) =>{
+        e.preventDefault(); 
+        alert(e.target.pollname); 
+    }
+ 
 
     useEffect(()  =>{
         const fetchData = async () =>{
@@ -58,10 +62,10 @@ const Polls = ( {findPollId} ) => {
 
     return(
         <>  
-            {user.username === '' ? null : <h1> hei {user.username}  </h1> } 
+            {user ? <h1> hei {user}  </h1> : null} 
             <div>
                 {loading && 'Loading ...'}
-                {polls && polls.length > 0 && <List findPollId={findPollId} data={polls}/>}
+                {polls && polls.length > 0 && <List data={polls} answerbtn={answerBtn} />}
             </div>
            
         </>

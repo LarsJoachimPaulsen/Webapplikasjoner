@@ -52,10 +52,11 @@ const CreateUserBox = () => {
 
                 if(response.status>=200 && response.status<400){
                     setError('');
-                    //history.push('/poll');
-                    
-                    
-                    setUser({userId: '2', username: values.username});
+                    //history.push('/polls');
+        
+
+                    //console.log(id);
+                    setUser(values.username);
                 }    
             }catch(error){
                 setError(error.message);

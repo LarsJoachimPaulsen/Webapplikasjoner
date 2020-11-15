@@ -1,7 +1,7 @@
 import React, {createContext, useEffect, useState} from 'react'; 
 
 export const UserContext = createContext({
-    state: '',
+    state: null,
     updateState: () => {}
 
 }); 
@@ -9,7 +9,7 @@ export const UserContext = createContext({
 const GlobalStateProvider = ( {children} ) => {
 
    
-    const [user, setUser] = useState({userId: '', username: ''}); 
+    const [user, setUser] = useState(null); 
 
     useEffect(() => {
         console.log(user)

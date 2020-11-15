@@ -4,19 +4,13 @@ import Route from '../Routes/Routes';
 import Theme from '../CommonComponents/Styles/Theme';
 import GlobalStateProvider from '../GlobalStates/UserStateProvider';
 
-const Main = () =>{
-
-  
-   
-   return(
-
-      <GlobalStateProvider>
-         <Theme>
-            <Route/>
-         </Theme>
-      </GlobalStateProvider>
-   )
+const Main = () =>(
+   <GlobalStateProvider>
+      <Theme>
+         <Route/>
+      </Theme>
+   </GlobalStateProvider>
         
-};
+);
 
 export default Main; 
