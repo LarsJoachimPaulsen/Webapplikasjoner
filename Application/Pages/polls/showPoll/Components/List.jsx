@@ -2,6 +2,7 @@ import React, {useState, useContext, useEffect} from 'react';
 import styled from 'styled-components'; 
 import PollCard from './PollCard';
 import {UserContext} from '../../../../GlobalStates/UserStateProvider';
+import axios from 'axios';
 
 
 const ListStyle = styled.div`
@@ -26,7 +27,7 @@ const List = ({ data  }) => {
 
     let paramId = user.userId;
     let username = user.username; 
-    //let pollId; 
+    
 
 
     useEffect(()=>{
@@ -43,7 +44,39 @@ const List = ({ data  }) => {
         })
 
         console.log(answeredPoll)
+
+        addPollToUser()
     }
+
+    const addPollToUser = () => { 
+
+        console.log("kommer hit")
+        const addNewInformation = async () => {
+
+            console.log("kommer hit")
+
+            try{
+                const response = await axios.put(`http://localhost:5001/api/v1/users/${paramId}`, 
+                    username,
+                    answeredPolls [
+                        answeredPoll.pollId, 
+                        {...answeredPoll}
+                    ], 
+        
+                )
+                    //console.log(response.status);
+                if(response.status >= 200 && response.status < 400){
+                    console.log(virker)
+                }
+            }
+            catch(error){
+                console.log(error.mesage); 
+            }
+        }
+
+        addNewInformation(); 
+
+    }   
 
 
 

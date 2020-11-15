@@ -77,16 +77,17 @@ const CreateUserBox = () => {
                     values, 
                 );
 
-                console.log(response.data.data)
+                console.log(response.data)
                 //console.log(response.data.data.keys()); 
 
                 if(response.status>=200 && response.status<400){
                     setError('');
                     
-                    console.log(response.length);
-                     setUser({userId: '1', username: values.username});
+                    const map = setMap(response.data.data); 
+                
+    
                      
-                     history.push('/polls');
+                    history.push('/polls');
         
 
                     //console.log(id);
