@@ -1,9 +1,40 @@
 import axios from 'axios';
 import React, {useEffect, useState, useContext} from 'react'; 
 import { useHistory } from 'react-router-dom';
+import styled from 'styled-components';
 //import useCustomForm from '../../hooks/useCustomForm'
-import {UserContext} from '../../../GlobalStates/UserStateProvider';
 
+const StyledForm = styled.form`
+    display:block; 
+    background-color: #ffe2c9; 
+    box-shadow: 10px 10px 5px 0px rgba(184,178,219,1);
+    padding: 1.5%;
+    width: 20%; 
+`;
+
+const StyledLabel = styled.label`
+    display: inline-block; 
+    float: left; 
+    margin-bottom: 1%;
+    font-size: 1.2em;
+`;
+
+const StyledInput = styled.input`
+    display: block; 
+    width: 90%; 
+    float: left;
+    margin-bottom: 3%;
+    font-size: 0.8em;
+`;
+
+const StyledInputSubmit = styled.input`
+    width: auto;
+    border: solid 1px darkgrey;
+    background-color: #ebe8f7;
+    font-size: 0.8em;
+    margin: 15px 0 0 0;
+    padding: 3px;
+`;
 
 const CreatePoll = () => {
     const { user } = useContext(UserContext);
@@ -87,18 +118,17 @@ const CreatePoll = () => {
         <>
         <div>
             {error && <p>{error}</p>}
-        
-            <form  onSubmit={createNewPoll} >
+            <StyledForm  onSubmit={createNewPoll} >
 
-                <label htmlFor="pollname">Navn på poll</label>
-                <input id="pollname" type="text" required value={values.pollname} onChange={handleChange} name="pollname" />
+                <StyledLabel htmlFor="pollname">Navn på poll</StyledLabel>
+                <StyledInput id="pollname" type="text" required value={values.pollname} placeholder="Navn på poll" onChange={handleChange} name="pollname" />
 
-                <label htmlFor="question" name="title" >spørsmål: </label>
-                <input type="text" id="question" required value={values.question} onChange={handleChange} name="question"  /> 
+                <StyledLabel htmlFor="question" name="title" > Spørsmål </StyledLabel>
+                <StyledInput type="text" id="question" required value={values.question} placeholder="Spørsmål" onChange={handleChange} name="question"  /> 
         
-                <input type='submit' value="Send inn"/>   
+                <StyledInputSubmit type='submit' value="Send inn"/>   
                 
-            </form>
+            </StyledForm>
         </div>
         </>
         
