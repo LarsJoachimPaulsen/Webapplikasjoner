@@ -7,8 +7,8 @@
     "build-web": "webpack --config webpack.production.config.js",
     "dev-web": "webpack-dev-server --config webpack.development.config.js",
     "clean-web": "rm -rf public",
-    "test": "jest", 
-    "test-watch": "jest --watchAll", 
+    "test": "jest",
+    "test-watch": "jest --watchAll",
     "test-coverage": "jest --coverage"
   },
   "keywords": [],
