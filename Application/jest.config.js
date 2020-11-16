@@ -4,13 +4,15 @@
  */
 
 module.exports = {
-  collectCoverageFrom: [
-    'src/**/*.js?(x)'
-  ],
+  
+  coverageProvider: "v8",
+
   
   testEnvironment: "node",
 
-  testMatch: [
-    "<rootDir>/test/**/?(*.)+(spec|test).[tj]s?(x)"
-  ],
+  collectCoverageFrom: [
+    'src/**/*.js?(x)'
+  ], 
+
+  
 };

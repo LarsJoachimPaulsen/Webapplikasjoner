@@ -14,9 +14,9 @@ const ListStyle = styled.div`
     flex-direction: column;
 `; 
 
-const List = ({ data }) => {
+const List = ({ polls, setPoll  }) => {
 
-    const [answeredPoll, setAnsweredPoll] = useState({pollId: '', pollname: '', pollquestion: '', answer: ''});
+    const [answeredPoll, setAnsweredPoll] = useState();
     
     const { user } = useContext(UserContext); 
 
@@ -29,17 +29,20 @@ const List = ({ data }) => {
         username = user.username;
     }, [user])
 
-    const answerPoll = (id) => {
-        console.log(data.pollanswer);
+    const answerPoll = (answer,item) => {
+        const mellomlagret = [
+            item[0],{
+            "pollname":item[1].pollname,
+            "pollquestion":item[1].question,
+            "answer":answer
+            }
+        ]
+        
+        setAnsweredPoll(mellomlagret)
 
-        setAnsweredPoll({
-            id,
-            ...data[id-1][1]
-        })
-
-        console.log(answeredPoll)
-
-        addPollToUser()
+        console.log(JSON.stringify(answeredPoll))
+       // addPollToUser()
+        
     }
 
     const addPollToUser = () => { 
@@ -76,13 +79,15 @@ const List = ({ data }) => {
 
     return(
     <>
-        {data.map((item) => (
+        {polls.map((item) => (
             <ListStyle key={item[0]}>
                 <PollCard 
                 item={item} 
                 answerPoll={answerPoll}
                 answeredPoll={answeredPoll}
                 setAnsweredPoll={setAnsweredPoll}
+
+
                 />
             </ListStyle>
         ))}
