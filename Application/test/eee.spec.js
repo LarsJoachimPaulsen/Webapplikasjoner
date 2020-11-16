@@ -1,3 +1,6 @@
-it('eeeee eeee', () => {
-    
-})
+
+describe('Filter function', () =>{
+    test('eeeee eeee', () => {
+        console.log("test");
+    });
+});

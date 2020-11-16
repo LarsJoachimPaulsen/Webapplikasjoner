@@ -14,7 +14,7 @@ const ListStyle = styled.div`
     flex-direction: column;
 `; 
 
-const List = ({ data  }) => {
+const List = ({ data }) => {
 
     const [answeredPoll, setAnsweredPoll] = useState({pollId: '', pollname: '', pollquestion: '', answer: ''});
     
@@ -81,8 +81,8 @@ const List = ({ data  }) => {
                 <PollCard 
                 item={item} 
                 answerPoll={answerPoll}
-            
-
+                answeredPoll={answeredPoll}
+                setAnsweredPoll={setAnsweredPoll}
                 />
             </ListStyle>
         ))}

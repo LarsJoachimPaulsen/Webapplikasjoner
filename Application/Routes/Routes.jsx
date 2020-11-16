@@ -19,7 +19,7 @@ const Routes = () => (
         <MainLayout>
             <Switch>
                 <Route exact path="/">
-                    <Poll />
+                   <Redirect from='/' to='/poll' />
                 </Route>
             </Switch>
         

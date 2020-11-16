@@ -49,9 +49,11 @@ const CreateUserBox = () => {
                 if(response.status>=200 && response.status<400){
                     setError('');
                     
-                    const map = setMap(response.data.data); 
-                
-    
+                    const data = JSON.stringify(response.data); 
+                    
+                    console.log('data')
+                    console.log(data);
+                    console.log(data.length)
                      
                     history.push('/polls');
         

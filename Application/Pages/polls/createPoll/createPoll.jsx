@@ -1,8 +1,9 @@
 import axios from 'axios';
 import React, {useEffect, useState, useContext} from 'react'; 
 import { useHistory } from 'react-router-dom';
-//import useCustomForm from '../../hooks/useCustomForm'
-import {UserContext} from '../../../GlobalStates/UserStateProvider'
+//import useCustomForm from '../../hooks/useCustomForm';
+import {UserContext} from '../../../GlobalStates/UserStateProvider';
+
 
 const CreatePoll = () => {
     const { user } = useContext(UserContext);
