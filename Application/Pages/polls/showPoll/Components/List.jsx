@@ -70,22 +70,13 @@ const List = ({ polls, setPoll  }) => {
 
             try{
                 
-                const response = axios.put(`http://localhost:5001/api/v1/users/${paramId}`, 
-                    {
-                        ...userdata,
-                        "completedPoll":[
-                            pollId,
-                            
-                                ...answeredPoll
-                            
-
-                        ] 
-                    }
-                
+                const response = axios.put(`http://localhost:5001/api/v1/polls/${pollId}`, 
+                    
+                    ...answeredPoll
         
                 )
         
-                    console.log(response.status);
+                console.log(response.status);
                 if(response.status >= 200 && response.status < 400){
                     console.log(virker)
                 }

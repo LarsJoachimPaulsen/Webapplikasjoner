@@ -35,6 +35,8 @@ export const putPoll = (req, res, next) => {
     const {id } = req.params;
     const {...polls} = req.body; 
 
+    console.log("req body " + req.body);
+
     const{status, error, data } = updatePoll({id, ...polls}); 
 
     res.status(status).json({

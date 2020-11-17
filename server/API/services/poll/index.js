@@ -34,6 +34,8 @@ export const updatePoll = (polls) => {
 
     const {id, ...poll} = polls; 
 
+    console.log('poll')
+
     const updatedPoll = helpers.findId(pollData, id); 
     if(updatedPoll.error){
         return updatedPoll
