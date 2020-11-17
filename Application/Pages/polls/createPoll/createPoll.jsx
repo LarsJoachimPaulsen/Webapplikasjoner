@@ -48,7 +48,7 @@ const CreatePoll = () => {
         const postData = async () => {
             try{
                 const response = await axios.post('http://localhost:5001/api/v1/polls', 
-                    values,
+                    {...values},
                 );
                 console.log('trying')
                 if(response.status >= 200 && response.status <400){
@@ -78,9 +78,9 @@ const CreatePoll = () => {
             {error && <p>{error}</p>}
             <form  onSubmit={createNewPoll} >
                 <label htmlFor="pollname">Navn på poll</label>
-                    <input id="pollname" type="text" required value={values.pollname} placeholder="Navn på poll" onChange={handleChange} name="pollname" />
+                <input id="pollname" type="text" required value={values.pollname} placeholder="Navn på poll" onChange={handleChange} name="pollname" />
                 <label htmlFor="question" name="title" > Spørsmål </label>
-                    <input type="text" id="question" required value={values.question} placeholder="Spørsmål" onChange={handleChange} name="question"  /> 
+                <input type="text" id="question" required value={values.question} placeholder="Spørsmål" onChange={handleChange} name="question"  /> 
                 <input class="inputSubmit" type='submit' value="Send inn"/>   
             </form>
         </div>

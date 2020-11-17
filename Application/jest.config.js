@@ -7,8 +7,9 @@ module.exports = {
   
   coverageProvider: "v8",
 
-  
-  testEnvironment: "node",
+  setupFilesAfterEnv: ['<rootDir>/test/setupTests.js'],
+
+  testEnvironment: "jsdom",
 
   collectCoverageFrom: [
     'src/**/*.js?(x)'

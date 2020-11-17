@@ -32,8 +32,9 @@ export const update = (user) => {
 
     const {id, ...data} = user; 
 
-    console.log(id)
-
+    console.log("Id fra server" + id); 
+   
+    
     const updateUser = helpers.findId(userData, id); 
 
     if(user.error){

@@ -30,6 +30,7 @@ export const updateUsers = (req, res, next) => {
     const { id } = req.params; 
     const {...users} = req.body; 
 
+   
     const {error, data, status} = update({id, ...users}); 
 
     res.status(status).json({
@@ -55,7 +56,7 @@ export const createUser = (req, res, next) => {
 
 export const removeUser = (req, res, next) => {
     
-    const {id } = req.params; 
+    const { id } = req.params; 
     
     const { status, data, error} = remove(id);
     

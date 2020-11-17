@@ -4,6 +4,8 @@ import {useHistory} from 'react-router-dom';
 import UseCustomform from '../../../hooks/useCustomForm';
 import GlobalStateProvider, { UserContext } from '../../../GlobalStates/UserStateProvider';
 
+
+
 const initialState = {username: '', password: ''};
 
 const CreateUserBox = () => {
@@ -41,22 +43,23 @@ const CreateUserBox = () => {
         const sendData = async () => {
             try{
                 const response = await axios.post('http://localhost:5001/api/v1/users/', 
-                    values, 
+                    values,
                 );
-                console.log(response.data.data)
+                console.log(response)
                 //console.log(response.data.data.keys()); 
 
                 if(response.status>=200 && response.status<400){
                     setError('');
                     
-                    const data = JSON.stringify(response.data); 
+                    const data = response.data.data; 
                     
-                    console.log('data')
-                    console.log(data);
-                    console.log(data.length)
+                    const count = response.length; 
+                    console.log('count')
+                    console.log(count);
+                   // console.log(data.length)
                      
-                    history.push('/polls');
-        
+                    history.push('/poll');
+                    setUser({"userId": "1", "username": values.username, "password": values.password});
                     //console.log(id);
                 }    
             }catch(error){
@@ -75,13 +78,11 @@ const CreateUserBox = () => {
 
     return (
         <div className="Form-box">
-            <form onSubmit={handleSubmit} > 
+            <form id="createUserForm" onSubmit={handleSubmit} > 
                 <label htmlFor ="username"> Epost </label>
-                    <input type="email" value={values.username} id="username" placeholder="Brukernavn" onChange={handleChange} name="username" />
+                <input type="email" value={values.username} id="username" placeholder="Brukernavn" onChange={handleChange} name="username" />
                 <label htmlFor="password"> Passord </label>
-                    <input type="password" id="password" value={values.password} placeholder="Passord" onChange={handleChange} name="password" />
-                <label htmlFor="confirmPassword">Bekreft passord</label>
-                    <input type="password" id="confirmPassword" placeholder="Bekreft passord" name="confirmPassword"/>           
+                <input type="password" id="password" value={values.password} placeholder="Passord" onChange={handleChange} name="password" />    
                 <input class="inputSubmit" type="submit" value="Registrer" />   
             </form>            
         </div>

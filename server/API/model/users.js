@@ -8,22 +8,21 @@ export default new Map([
                 '1', 
                 {
                     pollname: 'testpoll', 
-                    question: 'er dette en poll?',
-                    answers: '', 
-                      
+                    question: 'testest?',
+                    answers: '',
                 },
             ], 
             completedPolls: [
                 '3', 
                 {
-                    pollname: 'poll3', 
-                    question: 'er dette en poll da?',
+                    pollname: 'test3', 
+                    question: 'testest?',
                     answer: 'jepp',
                 }, 
                 '4',
                 {
-                    pollname: 'yetAnother poll', 
-                    question: 'yet another poll?', 
+                    pollname: 'test4', 
+                    question: 'test', 
                     answer: 'yep'
                 },
             ]
@@ -38,21 +37,21 @@ export default new Map([
                 '1', 
                 {
                     pollname: 'testpoll', 
-                    question: 'er dette en poll?',
+                    question: 'testest?',
                     answers: '',
                 },
             ], 
             completedPolls: [
                 '3', 
                 {
-                    pollname: 'poll3', 
-                    question: 'er dette en poll da?',
+                    pollname: 'test3', 
+                    question: 'testest?',
                     answer: 'jepp',
                 }, 
                 '4',
                 {
-                    pollname: 'yetAnother poll', 
-                    question: 'yet another poll?', 
+                    pollname: 'test4', 
+                    question: 'test', 
                     answer: 'yep'
                 },
             ]

@@ -3,8 +3,8 @@ export default new Map([
     [
         '1',
         {
-            pollname: 'firstPoll', 
-            question: 'firstPoll?', 
+            pollname: 'testPoll', 
+            question: 'testtest?', 
             answer: '',
             createdByUSerId: 1
         },
@@ -12,8 +12,8 @@ export default new Map([
     [
         '2',
         {
-            pollname: 'secondPoll', 
-            question: 'secondPoll?', 
+            pollname: 'test2', 
+            question: 'tes2?', 
             answer: '',
             createdByUserId: 1
         },

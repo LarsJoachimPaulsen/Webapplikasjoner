@@ -9,7 +9,7 @@ export const UserContext = createContext({
 const GlobalStateProvider = ( {children} ) => {
 
    
-    const [user, setUser] = useState({userId: '', username: ''}); 
+    const [user, setUser] = useState({userId: '', username: '', password: ''}); 
 
     useEffect(() => {
         console.log(user)
